@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevArtech</title>
     <link rel="stylesheet" href="style.css">
-    <script src="code.js"></script>
 </head>
 <body>
-    <header>
+    <header id="site-header">
         <div class="leftSide">
             <a href="#"><img class="headerImage" src="images/lp.png"></a>
         </div>
@@ -24,5 +23,26 @@
             </nav>
         </div>
     </header>
+	<section class="cover">
+		<div class="left1">
+			<div class="splitLeft"></div>
+			<div class="blankRight"></div>
+		</div>
+		<div class="right1">
+			<div class="slideElement">
+				<div class="textCover"></div>
+				<div class="textCover2"></div>
+				<h1 class="coverText" id="mainText">IMAGINING A NEW WORLD</h1>
+				<script> 
+					const main = document.getElementById("mainText");
+					setTimeout(() => { main.textContent = "IMAGINING A BETTER WORLD"; }, 2000);
+				</script>
+			</div>
+		</div>
+	</section>
+	<section class="secondary">
+	
+	</section>
+	<script src="code.js"></script>
 </body>
 </html>
