@@ -153,10 +153,11 @@ a:hover {
 
 .coverText {
 	opacity: 0;
-	padding-top: 72px;
+	padding-top: 110px;
 	width: 50%;
 	height: 70%;
 	font-size: 140px;
+    font-size: 9vw;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 600;
 	color: #F3E8EE;
@@ -182,28 +183,9 @@ a:hover {
 }
 
 .textCover {
-	position: absolute;
-	margin-top: 15%;
-	margin-left: -10px;
-	padding-right: 20px;
 	z-index: 999;
-	width: 50%;
-	height: 70%;
 	background-color: #5126C7;
 	opacity: 0;
-	animation: textCover 1s 0.5s 1 forwards ;
-}
-
-.textCover2 {
-	position: absolute;
-	margin-top: 36%;
-	margin-left: -10px;
-	z-index: 999;
-	width: 50%;
-	height: 20%;
-	background-color: #5126C7;
-	opacity: 0;
-	animation: textCover 1s 1.5s 1 forwards ;
 }
 
 @keyframes slideIn {
