@@ -1,9 +1,10 @@
 ### Hi there 👋 
 I am DevArtech, also known as just Artech, and am a video game developer, 3D Modeller & Additive Manufacturer, and general avid computer scientist. I am a student studying at MSOE for Comp Sci.   
-I'm currently working on: My Landing Page   
-Feel free to reach out at: iamhaile222@gmail.com   
+   
+🔭 I'm currently working on: My Landing Page   
+📫 Feel free to reach out at: iamhaile222@gmail.com   
 Pronouns: He/Him   
-Thanks for reading this!
+Thanks for reading this! 😄
 
 <!--
 **DevArtech/devartech** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
