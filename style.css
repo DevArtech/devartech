@@ -147,39 +147,23 @@ a:hover {
 
 .slideElement {
 	width: 100%;
-	padding-left: 64px;
 	height: 100%;
 }
 
 .coverText {
+	margin-left: 4vh;
 	opacity: 0;
 	padding-top: 110px;
 	width: 50%;
 	height: 70%;
 	font-size: 140px;
-    font-size: 9vw;
+    font-size: 14vh;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 600;
 	color: #F3E8EE;
 	display:table-caption;
 	word-spacing: 9999rem;
 	animation: slideIn 1s 0.5s 1 forwards;
-}
-
-.coverText2 {
-	position: absolute;
-	opacity: 0;
-	margin-top: -60.5%;
-	padding-top: 72px;
-	width: 50%;
-	height: 70%;
-	font-size: 140px;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 600;
-	color: #F3E8EE;
-	display:table-caption;
-	word-spacing: 9999rem;
-	animation: slideIn 1s 1.5s 1 forwards;
 }
 
 .textCover {
