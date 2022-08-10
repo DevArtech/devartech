@@ -113,6 +113,7 @@ li a {
 
 a:hover {
     color: #F7AEF8;
+    transform: scale(1.1);
 }
 
 .cover {
@@ -125,7 +126,9 @@ a:hover {
 .left1 {
 	height: 100%;
 	width: 25%;
-	-webkit-border-image: -webkit-linear-gradient(-90deg, #F3E8EE, #1A1423) 0 100% 0 0/0 1px 0 0 stretch;
+	border-left: 0px;
+    border-right: 1px solid;
+    border-image: linear-gradient(180deg, #F3E8EE, #1A1423) 0 100%;
 	backdrop-filter: blur(20px);
 	-webkit-backdrop-filter: blur(20px);
 	display: flex;
@@ -215,7 +218,9 @@ a:hover {
 	width: 35%;
 	height: 100%;
 	background: linear-gradient(135deg, rgba(50, 50, 50, 0.4), rgba(0, 0, 0, 0.3));
-	-webkit-border-image: -webkit-linear-gradient(-90deg, #F3E8EE, #1A1423) 0 100% 0 0/0 1px 0 0 stretch;
+	border-left: 0px;
+    border-right: 1px solid;
+    border-image: linear-gradient(180deg, #F3E8EE, #1A1423) 0 100%;
     justify-content: center;
     align-items: flex-end;
     padding-left: 1vw;
@@ -230,6 +235,9 @@ a:hover {
     width: 25%;
     height: 100%;
     background-color: #8339C4;
+    border-left: 1px solid;
+    border-right: 0px;
+    border-image: linear-gradient(180deg, #F3E8EE, #1A1423) 0 100%;
 }
 
 .secondary {
@@ -264,5 +272,6 @@ a:hover {
 
 .fa-brands:hover {
     color: #7126C7;
+    transform: scale(1.1);
 }
 
