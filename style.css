@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 body {
@@ -293,6 +292,8 @@ a:hover {
 	margin-bottom: 4vh;
 	display: flex;
 	justify-content: center;
+	opacity: 0;
+	animation: right 1s 0.5s 1 forwards;
 }
 
 .scrollBall {
