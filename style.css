@@ -121,6 +121,10 @@ a:hover {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	background-image: url(images/GameScreenshot-Purple.png);
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
 }
 
 .left1 {
@@ -145,6 +149,7 @@ a:hover {
 	justify-content: center;
 	align-items: center;
 	display: flex;
+	background: linear-gradient(135deg, rgba(50, 50, 50, 0.3), rgba(0, 0, 0, 0.2));
 }
 
 .slideElement {
@@ -217,7 +222,7 @@ a:hover {
 .splitLeft {
 	width: 35%;
 	height: 100%;
-	background: linear-gradient(135deg, rgba(50, 50, 50, 0.4), rgba(0, 0, 0, 0.3));
+	background: linear-gradient(135deg, rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.6));
 	border-left: 0px;
     border-right: 1px solid;
     border-image: linear-gradient(180deg, #F3E8EE, #1A1423) 0 100%;
@@ -232,12 +237,15 @@ a:hover {
 }
 
 .rightCol {
-    width: 25%;
+    width: 15%;
     height: 100%;
-    background-color: #8339C4;
+    background-color: #7126C7;
     border-left: 1px solid;
     border-right: 0px;
     border-image: linear-gradient(180deg, #F3E8EE, #1A1423) 0 100%;
+	display: flex;
+	justify-content: center;
+    align-items: flex-end;
 }
 
 .secondary {
@@ -274,4 +282,50 @@ a:hover {
     color: #7126C7;
     transform: scale(1.1);
 }
+
+.scroll {
+	position: absolute;
+    bottom: 0;
+	padding: 5px;
+	height: 80px;
+	border: 1px solid #F3E8EE;
+	border-radius: 15px;
+	margin-bottom: 4vh;
+	display: flex;
+	justify-content: center;
+}
+
+.scrollBall {
+	width: 20px;
+	height: 20px;
+	background-color: #F3E8EE;
+	border-radius: 10px;
+	animation: scrollAnim 2.5s 2.5s infinite;
+	opacity: 0;
+}
+
+@keyframes scrollAnim {
+    from {
+        transform : translateY(0%);
+		opacity: 0;
+		animation-timing-function: ease-in;
+    }
+	10% {
+		transform : translateY(0%);
+		opacity: 1;
+		animation-timing-function: ease-in;
+	}
+    90% {
+        transform : translateY(300%);
+		opacity: 0;
+		animation-timing-function: ease-out;
+    }
+	to {
+		transform : translateY(300%);
+		opacity: 0;
+	}
+}
+
+
+
 
