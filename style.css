@@ -120,7 +120,7 @@ a:hover {
 }
 
 .cover {
-	height: 935px;
+	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -182,6 +182,13 @@ a:hover {
 	opacity: 0;
 }
 
+.textCover2.start {
+	z-index: 999;
+	background-color: #5126C7;
+	opacity: 0;
+	animation: blockText 1s forwards;
+}
+
 @keyframes slideIn {
     from {
 		opacity: 0;
@@ -197,7 +204,7 @@ a:hover {
     }
 }
 
-@keyframes textCover {
+@keyframes blockText {
     from {
         transform : translateX(50%) scale(0, 1);
 		opacity: 1;
@@ -253,6 +260,7 @@ a:hover {
 
 .secondary {
 	background-color: #1A1423;
+	height: 100vh;
 }
 
 .forceBottom {
@@ -265,6 +273,22 @@ a:hover {
 }
 
 .links {
+    opacity: 0;
+    animation: left 1s 0.25s 1 forwards; 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.res {
+	opacity: 0
+}
+
+.res.start {
     opacity: 0;
     animation: left 1s 0.25s 1 forwards; 
     position: relative; 
@@ -293,6 +317,9 @@ a:hover {
 	height: 80px;
 	border: 1px solid #F3E8EE;
 	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;	
+	-o-border-radius: 15px;
 	margin-bottom: 4vh;
 	display: flex;
 	justify-content: center;
@@ -304,7 +331,10 @@ a:hover {
 	width: 20px;
 	height: 20px;
 	background-color: #F3E8EE;
-	border-radius: 10px;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-o-border-radius: 50%;
 	animation: scrollAnim 2.5s 2.5s infinite;
 	opacity: 0;
 }
@@ -329,4 +359,202 @@ a:hover {
 		transform : translateY(300%);
 		opacity: 0;
 	}
+}
+
+.left2 {
+	height: 100%;
+	width: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #F3E8EE;
+}
+
+.right2 {
+	height: 100%;
+	width: 75%;
+	align-items: center;
+	display: inline-block;
+	justify-content: center;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.top2 {
+	height: 75vh;
+	width: inherit;
+	position: absolute;
+	top: 100vh;
+	right: 0;
+	border-left: 1px solid #1A1423;
+}
+
+.bottom2 {
+	height: 25vh;
+	width: inherit;
+	position: absolute;
+	background-color: #F3E8EE;
+	top: 175vh;
+	right: 0;
+	border-left: 1px dashed #1A1423;
+}
+
+.aboutMe {
+	opacity: 0;
+}
+
+.who {
+	opacity: 0;
+}
+
+.aboutMe.start {
+	opacity: 0;
+	color: #F3E8EE;
+	margin-top: 3vh;
+	margin-left: 5vw;
+	animation: slideIn 1s 0.1s 1 forwards;
+}
+
+.who.start {
+	opacity: 0;
+	color: #F3E8EE;
+	margin-left: 5vw;
+	margin-top: 0;
+	font-size: 3em;
+	animation: slideIn 1s 0.1s 1 forwards;
+}
+
+@keyframes fadeIn {
+    from {
+		opacity: 0;
+    }
+	50% {
+		opacity: 0;
+	}
+	51% {
+		opacity: 1;
+	}
+    to {
+		opacity: 1;
+    }
+}
+
+.aboutLine {
+	margin-left: 25%;
+	width: 50%;
+	margin-top: 1vh;
+}
+
+.desc {
+	color: #F3E8EE;
+	margin-top: 3vh;
+	margin-left: 5vw;
+	margin-right: 1vw;
+}
+
+.icon {
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-o-border-radius: 50%;
+	width: 20vw;
+	height: auto;
+}
+
+.container {
+	padding-top: 3vh;
+	position: relative;
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.leftCol {
+	position: absolute;
+	width: 50%;
+	height: auto;
+	left: 0;
+}
+
+.rightCol2 {
+	position: absolute;
+	width: 50%;
+	height: auto;
+	right: 0;
+	background-color: none;
+	display: flex;
+	justify-content: center;
+}
+
+.icon.start {
+	animation: bobIn 1s 1 forwards;
+}
+
+.iconLink {
+	transform: scale(1.0);
+	transition: all .3s ease;
+}
+
+.iconLink:hover {
+	transform: scale(1.1);
+}
+
+@keyframes bobIn {
+    from {
+		opacity: 0;
+		transform: scale(0.5);
+    }
+    to {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: scale(1);
+    }
+}
+
+.accordion {
+  background-color: #F3E8EE;
+  color: #1A1423;
+  cursor: pointer;
+  padding: 1vw;
+  width: 30vw;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  margin-left: 5vw;
+  opacity: 0;
+}
+
+.accordion.start {
+	animation: slideIn 1s 0.1s 1 forwards;
+}
+
+.active .accordion:hover {
+  background-color: #F7AEF8;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  margin-left: 5vw;
+}
+
+.quote {
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 15vh;
+	font-size: 4em;
+}
+
+.quote.start {
+	animation: slideIn 1s 0.1s 1 forwards;
 }
