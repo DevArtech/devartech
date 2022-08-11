@@ -55,7 +55,7 @@ body {
 }
 
 .headerImage {
-    width: 20%;
+    width: 10%;
     height: auto;
     transition: transform 0.3s;
 }
