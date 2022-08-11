@@ -7,9 +7,12 @@
     <title>DevArtech</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/c70c67b49d.js" crossorigin="anonymous"></script>
+	<script src="jquery.js"></script>
+	<script src="waypoints/lib/jquery.waypoints.min.js"></script>
+	<script src="waypoints/lib/shortcuts/inview.min.js"></script>
 </head>
 <body>
-    <header id="site-header">
+    <header id="site-header" style="z-index: 9999">
         <div class="leftSide">
 		<a href="#" class="headerLogo"><h2>DevArtech</h2></a>
         </div>
@@ -41,8 +44,8 @@
 		</div>
 		<div class="right1">
 			<div class="slideElement">
-				<div class="textCover" style="position: absolute; margin-top: 26vh; width: 72vh; height: 62vh; animation: textCover 1s 0.5s 1 forwards; margin-left: 3.5vh;"></div>
-				<div class="textCover" style="position: absolute; margin-top: 56vh; width: 72vh; height: 16vh; animation: textCover 1s 1.5s 1 forwards; margin-left: 3.5vh;"></div>
+				<div class="textCover" style="position: absolute; margin-top: 26vh; width: 72vh; height: 62vh; animation: blockText 1s 0.5s 1 forwards; margin-left: 3.5vh;"></div>
+				<div class="textCover" style="position: absolute; margin-top: 56vh; width: 72vh; height: 16vh; animation: blockText 1s 1.5s 1 forwards; margin-left: 3.5vh;"></div>
 				<h1 class="coverText" id="mainText">IMAGINING A <span style="color: #8339C4">NEW</span> WORLD</h1>
 				<script> 
 					const main = document.getElementById("mainText");
@@ -57,8 +60,69 @@
 		</div>
 	</section>
 	<section class="secondary">
-	
+		<div class="left2">
+			<ul class="res waitTillLoad">
+				<li style="font-weight: 600; font-size: 2em; margin: 1vw;">More Info</li>
+				<li style="margin: 1vw;">CEO of Dark End Studios</li>
+				<li style="margin: 1vw;">B.Sc. in Comp Sci, Grad. in 2026 at MSOE</li>
+				<li style="margin: 1vw;">Manufacturing Intern at Wagner Architectural Systems</li>
+				<li style="margin: 1vw;">Solidworks Professional Certification</li>
+			</ul>
+		</div>
+		<div class="right2">
+			<div class="top2">
+				<div class="textCover2 waitTillLoad" style="margin-bottom: 0; position: absolute; margin-top: 2vh; width: 20vw; height: 12vh; margin-left: 4vw;"></div>
+				<p class="aboutMe waitTillLoad">About Me</p>
+				<h3 class="who waitTillLoad">Who is <span style="font-family: 'Rajdhani', sans-serif; color: #8339C4">Artech</span>?</h3>
+				<hr class="aboutLine">
+				<div class="container">
+					<div class="leftCol">
+						<p class="desc">Greetings! <br>I am Artech, also known as DevArtech or Adam Haile, 
+						and I am a current computer science student at MSOE. I am most well known for my game development 
+						and MC Map creation but am also an avid Additive Manufacturer and 3D Printing developer and 3D designer. 
+						I'm currently working on studying the world of AI/ML so if you would like to contact me with more information on this
+						science, please do so!</p>
+						<div class="textCover2 waitTillLoad" style="margin-bottom: 0; position: absolute; margin-top: 2vh; width: 35vw; height: 23vh; margin-left: 4vw;"></div>
+						<button class="accordion waitTillLoad" style="margin-top:2vw;">What programming languages do you know?</button>
+						<div class="panel">
+							<p>I'm still learning but I've been using C++ and C# primarily for the past few years but I also know HTML, CSS, Javascript, Python, Java, PHP, C, Ruby, MongoDB, and many others.</p>
+						</div>
+						<button class="accordion waitTillLoad">How did you get to where you are now?</button>
+						<div class="panel">
+							<p>Just about everything has been learned has been self-taught. I am currently enrolled as a freshmen at MSOE so soon I'll be recieving a true education into the world of Comp Sci and truly refine my skills.</p>
+						</div>
+						<button class="accordion waitTillLoad">What is your current project?</button>
+						<div class="panel">
+							<p>My current project is The Insignia Project! You can check it out under the Games section in the <a href="#">Projects</a> page!</p>
+						</div>
+					</div>
+					<div class="rightCol2">
+						<a class="iconLink"><img style="opacity: 0" class="icon waitTillLoad" src="images/DevArtech.png"></a>
+					</div>
+				</div>
+			</div>
+			<div class="bottom2">
+				<div class="textCover2 waitTillLoad" style="margin-bottom: 0; position: absolute; margin-top: 6vh; width: 30vw; height: 13vh; margin-left: 22.5vw;"></div>
+				<h1 class="quote waitTillLoad">"Judge the Cover"</h1>
+			</div>
+		</div>
 	</section>
+	<script>
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+			acc[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var panel = this.nextElementSibling;
+				if (panel.style.maxHeight) {
+					panel.style.maxHeight = null;
+				} else {
+					panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			});
+		}
+	</script>
 	<script src="code.js"></script>
 </body>
 </html>
