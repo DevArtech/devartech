@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Rajdhani&display=swap');
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     background-color: #1A1423;
     background-image: linear-gradient(135deg, #5126C770, #5126C770);
