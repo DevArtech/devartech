@@ -79,7 +79,7 @@ body {
     opacity   : 0;
     min-height: auto;
     min-width: 25%;
-    padding-right: 2vh;
+    padding-right: 1.5vh;
     animation: right 1s 0.5s 1 forwards;
 }
 
