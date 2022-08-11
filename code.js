@@ -50,3 +50,12 @@
     window.addEventListener('scroll', checkScroll);
 
 })();
+
+$(window).load(function () {
+    var in_view = new Waypoint.Inview({
+        element: $('.waitTillLoad')[0],
+        enter: function() {
+            $('.waitTillLoad').addClass('start');
+        },
+    });
+});
