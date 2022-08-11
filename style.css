@@ -36,7 +36,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-betweem;
     align-items: center;
 	animation: showHeader 1s 1 forwards;
 	transition: all .3s ease;
@@ -48,10 +48,10 @@ body {
 
 .leftSide{
     max-height: auto;
-    min-width: 20%;
+    min-width: 25%;
     opacity: 0;
     animation: left 1s 0.5s 1 forwards;
-	padding-left: 2vw;
+    padding-left: 2vw;
 }
 
 .headerImage {
@@ -79,7 +79,6 @@ body {
     opacity   : 0;
     min-height: auto;
     min-width: 25%;
-    padding-right: 1.5vh;
     animation: right 1s 0.5s 1 forwards;
 }
 
