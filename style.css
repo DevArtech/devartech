@@ -51,7 +51,7 @@ body {
     min-width: 20%;
     opacity: 0;
     animation: left 1s 0.5s 1 forwards;
-	padding-left: 5vw;
+	padding-left: 2vw;
 }
 
 .headerImage {
@@ -79,7 +79,7 @@ body {
     opacity   : 0;
     min-height: auto;
     min-width: 25%;
-    padding-right: 5vh;
+    padding-right: 2vh;
     animation: right 1s 0.5s 1 forwards;
 }
 
