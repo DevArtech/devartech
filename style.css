@@ -51,11 +51,11 @@ body {
     min-width: 20%;
     opacity: 0;
     animation: left 1s 0.5s 1 forwards;
-	padding-right: 15em;
+	padding-left: 5vw;
 }
 
 .headerImage {
-    width: 10%;
+    width: 5vw;
     height: auto;
     transition: transform 0.3s;
 }
@@ -78,7 +78,8 @@ body {
 .menu {
     opacity   : 0;
     min-height: auto;
-    min-width: 20%;
+    min-width: 25%;
+    padding-right: 5vh;
     animation: right 1s 0.5s 1 forwards;
 }
 
