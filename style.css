@@ -601,3 +601,87 @@ a:hover {
         opacity   : 1;
     }
 }
+
+.fourth {
+	height: 15vh;
+	margin-top: 5vh;
+}
+
+.m-scroll {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: 5vh;
+	margin: auto;
+	overflow: hidden;
+	z-index: 1;
+}
+.m-scroll__title {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	height: 100%;
+	white-space: nowrap;
+	transform: scale(2);
+	transition: all 1s ease;
+}
+.m-scroll__title div {
+	display: flex;
+	animation: scrollText 22s infinite linear;
+}
+.m-scroll__title p {
+	margin: 0;
+	font-size: 1em;
+	color: #ffffff;
+	transition: all 2s ease;
+}
+
+.m-scroll__title2 {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	height: 100%;
+	white-space: nowrap;
+	transform: scale(2);
+	transition: all 1s ease;
+}
+.m-scroll__title2 div {
+	display: flex;
+	animation: scrollText2 22s infinite linear;
+}
+.m-scroll__title2 p {
+	margin: 0;
+	font-size: 1em;
+	color: #ffffff;
+	transition: all 2s ease;
+}
+@keyframes scrollText {
+	from {
+		transform: translateX(0%);
+   }
+	to {
+		transform: translateX(-50%);
+   }
+}
+
+@keyframes scrollText2 {
+	from {
+		transform: translateX(-50%);
+   }
+	to {
+		transform: translateX(0%);
+   }
+}
+
+.fifth {
+	background-color: #1A1423;
+	height: 20vh;
+}
