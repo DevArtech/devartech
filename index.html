@@ -10,6 +10,9 @@
 	<script src="jquery.js"></script>
 	<script src="waypoints/lib/jquery.waypoints.min.js"></script>
 	<script src="waypoints/lib/shortcuts/inview.min.js"></script>
+	<script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
+
 </head>
 <body>
     <header id="site-header" style="z-index: 9999">
@@ -61,7 +64,7 @@
 	</section>
 	<section class="secondary">
 		<div class="left2">
-			<ul class="res waitTillLoad">
+			<ul class="res">
 				<li style="font-weight: 600; font-size: 2em; margin: 1vw;">More Info</li>
 				<li style="margin: 1vw;">CEO of Dark End Studios</li>
 				<li style="margin: 1vw;">B.Sc. in Comp Sci, Grad. in 2026 at MSOE</li>
@@ -71,9 +74,9 @@
 		</div>
 		<div class="right2">
 			<div class="top2">
-				<div class="textCover2 waitTillLoad" style="margin-bottom: 0; position: absolute; margin-top: 2vh; width: 20vw; height: 12vh; margin-left: 4vw;"></div>
-				<p class="aboutMe waitTillLoad">About Me</p>
-				<h3 class="who waitTillLoad">Who is <span style="font-family: 'Rajdhani', sans-serif; color: #8339C4">Artech</span>?</h3>
+				<div class="textCover2 waitTillLoad1" style="margin-bottom: 0; position: absolute; margin-top: 2vh; width: 30vw; height: 12vh; margin-left: 4vw;"></div>
+				<p class="aboutMe">About Me</p>
+				<h3 class="who">Who is <span style="font-family: 'Rajdhani', sans-serif; color: #8339C4">Artech</span>?</h3>
 				<hr class="aboutLine">
 				<div class="container">
 					<div class="leftCol">
@@ -82,32 +85,42 @@
 						and MC Map creation but am also an avid Additive Manufacturer and 3D Printing developer and 3D designer. 
 						I'm currently working on studying the world of AI/ML so if you would like to contact me with more information on this
 						science, please do so!</p>
-						<div class="textCover2 waitTillLoad" style="margin-bottom: 0; position: absolute; margin-top: 2vh; width: 35vw; height: 23vh; margin-left: 4vw;"></div>
-						<button class="accordion waitTillLoad" style="margin-top:2vw;">What programming languages do you know?</button>
+						<div class="textCover2 waitTillLoad2" style="margin-bottom: 0; position: absolute; margin-top: 2vh; width: 35vw; height: 21vh; margin-left: 4vw;"></div>
+						<button class="accordion" style="margin-top:2vw;">What programming languages do you know?</button>
 						<div class="panel">
 							<p>I'm still learning but I've been using C++ and C# primarily for the past few years but I also know HTML, CSS, Javascript, Python, Java, PHP, C, Ruby, MongoDB, and many others.</p>
 						</div>
-						<button class="accordion waitTillLoad">How did you get to where you are now?</button>
+						<button class="accordion">How did you get to where you are now?</button>
 						<div class="panel">
 							<p>Just about everything has been learned has been self-taught. I am currently enrolled as a freshmen at MSOE so soon I'll be recieving a true education into the world of Comp Sci and truly refine my skills.</p>
 						</div>
-						<button class="accordion waitTillLoad">What is your current project?</button>
+						<button class="accordion">What is your current project?</button>
 						<div class="panel">
 							<p>My current project is The Insignia Project! You can check it out under the Games section in the <a href="#">Projects</a> page!</p>
 						</div>
 					</div>
 					<div class="rightCol2">
-						<a class="iconLink"><img style="opacity: 0" class="icon waitTillLoad" src="images/DevArtech.png"></a>
+						<a class="iconLink"><img style="opacity: 0" class="icon" src="images/DevArtech.png"></a>
 					</div>
 				</div>
 			</div>
 			<div class="bottom2">
-				<div class="textCover2 waitTillLoad" style="margin-bottom: 0; position: absolute; margin-top: 6vh; width: 30vw; height: 13vh; margin-left: 22.5vw;"></div>
-				<h1 class="quote waitTillLoad">"Judge the Cover"</h1>
+				<div class="textCover2 waitTillLoad3" style="margin-bottom: 0; position: absolute; margin-top: 6vh; width: 50vw; height: 13vh; margin-left: 12.5vw;"></div>
+				<h1 class="quote">"Judge the Cover"</h1>
 			</div>
 		</div>
 	</section>
+	<section class="third">
+		<div class="textCover2 waitTillLoad4" style="margin-bottom: 0; position: absolute; margin-top: -2vh; width: 50vw; height: 10vh; margin-left: 20vw;"></div>
+		<h2 class="ghR">Github Repo Contributions</h2>
+		<div class="calendar" style="font-family: 'Roboto', sans-serif; border: none; z-index: 100;">
+			<!-- Loading stuff -->
+			Loading the data just for you.
+		</div>
+	</section>
 	<script>
+		GitHubCalendar(".calendar", "DevArtech", { responsive: true, tooltips: true });
+
 		var acc = document.getElementsByClassName("accordion");
 		var i;
 
@@ -123,6 +136,17 @@
 			});
 		}
 	</script>
+	<style>
+		.contrib-column {
+			color: #F3E8EE;
+		}
+		.contrib-number {
+			color: #F3E8EE;
+		}
+		.color-fg-muted {
+			color: #F3E8EE;
+		}
+	</style>
 	<script src="code.js"></script>
 </body>
 </html>

@@ -53,9 +53,86 @@
 
 $(window).load(function () {
     var in_view = new Waypoint.Inview({
-        element: $('.waitTillLoad')[0],
+        element: $('.res')[0],
         enter: function() {
-            $('.waitTillLoad').addClass('start');
+            $('.res').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.waitTillLoad1')[0],
+        enter: function() {
+            $('.waitTillLoad1').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.aboutMe')[0],
+        enter: function() {
+            $('.aboutMe').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.who')[0],
+        enter: function() {
+            $('.who').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.waitTillLoad2')[0],
+        enter: function() {
+            $('.waitTillLoad2').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.accordion')[0],
+        enter: function() {
+            $('.accordion').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.icon')[0],
+        enter: function() {
+            $('.icon').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.waitTillLoad3')[0],
+        enter: function() {
+            $('.waitTillLoad3').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.quote')[0],
+        enter: function() {
+            $('.quote').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.waitTillLoad4')[0],
+        enter: function() {
+            $('.waitTillLoad4').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.ghR')[0],
+        enter: function() {
+            $('.ghR').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.calendar')[0],
+        enter: function() {
+            $('.calendar').addClass('start');
         },
     });
 });

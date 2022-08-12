@@ -520,7 +520,7 @@ a:hover {
   background-color: #F3E8EE;
   color: #1A1423;
   cursor: pointer;
-  padding: 1vw;
+  padding: 2vh;
   width: 30vw;
   text-align: left;
   border: none;
@@ -540,7 +540,7 @@ a:hover {
 
 .panel {
   padding: 0 18px;
-  background-color: white;
+  background-color: #F3E8EE;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
@@ -559,4 +559,45 @@ a:hover {
 
 .quote.start {
 	animation: slideIn 1s 0.1s 1 forwards;
+}
+
+.third{
+	padding: 5vw;
+	background-color: #1A1423;
+}
+
+.contrib-column {
+	color: #F3E8EE;
+}
+
+.ghR {
+	opacity: 0;
+	width: 100%; 
+	text-align: center; 
+	color: #F3E8EE; 
+	font-size: 3em; 
+	margin: 0; 
+	margin-bottom: 3vh;
+}
+
+.ghR.start {
+	animation: slideIn 1s 0.1s 1 forwards;
+}
+
+.calendar {
+	opacity: 0;
+}
+
+.calendar.start {
+	animation: up 0.3s 0.25s 1 forwards;
+
+}
+
+@keyframes up {
+    from {
+        opacity   : 0;
+    }
+    to {
+        opacity   : 1;
+    }
 }
