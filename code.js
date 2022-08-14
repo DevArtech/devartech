@@ -135,4 +135,60 @@ $(window).load(function () {
             $('.calendar').addClass('start');
         },
     });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.left5')[0],
+        enter: function() {
+            $('.left5').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.middle5')[0],
+        enter: function() {
+            $('.middle5').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.right5')[0],
+        enter: function() {
+            $('.right5').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.waitTillLoad5')[0],
+        enter: function() {
+            $('.waitTillLoad5').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.itemText1')[0],
+        enter: function() {
+            $('.itemText1').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.itemText2')[0],
+        enter: function() {
+            $('.itemText2').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.itemText3')[0],
+        enter: function() {
+            $('.itemText3').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.waitTillLoad6')[0],
+        enter: function() {
+            $('.waitTillLoad6').addClass('start');
+        },
+    });
 });

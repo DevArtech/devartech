@@ -191,6 +191,27 @@ a:hover {
 	animation: blockText 1s forwards;
 }
 
+.textCover3.start {
+	z-index: 999;
+	background-color: #5126C7;
+	opacity: 0;
+	animation: blockText 1s 0.5s forwards;
+}
+
+.textCover4.start {
+	z-index: 999;
+	background-color: #5126C7;
+	opacity: 0;
+	animation: blockText 1s 0.75s forwards;
+}
+
+.textCover5.start {
+	z-index: 999;
+	background-color: #5126C7;
+	opacity: 0;
+	animation: blockText 1s 1s forwards;
+}
+
 @keyframes slideIn {
     from {
 		opacity: 0;
@@ -589,11 +610,11 @@ a:hover {
 }
 
 .calendar.start {
-	animation: up 0.3s 0.25s 1 forwards;
+	animation: fade 0.3s 0.25s 1 forwards;
 
 }
 
-@keyframes up {
+@keyframes fade {
     from {
         opacity   : 0;
     }
@@ -682,6 +703,149 @@ a:hover {
 }
 
 .fifth {
-	background-color: #1A1423;
-	height: 20vh;
+	background-image: url(images/C2.png);
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	gap: 0;
+}
+
+.coverDiv {
+	display: flex;
+	justify-content: space-evenly;
+	backdrop-filter: blur(16px);
+	width: 75vw;
+	border-left: 1px solid #1A1423;
+	gap: 2.5vw;
+	flex-wrap: wrap;
+}
+
+.leftCover {
+	backdrop-filter: blur(16px);
+	width: 25vw;
+	background-color: #1A142340;
+}
+
+.left5{
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+	width: 30vw;
+	height: 70vh;
+	opacity: 0;
+	display: flex;
+	justify-content: center;
+}
+
+.middle5{
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+	width: 30vw;
+	height: 70vh;
+	opacity: 0;
+	display: flex;
+	justify-content: center;
+}
+
+.right5{
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+	width: 30vw;
+	height: 70vh;
+	opacity: 0;
+	display: flex;
+	justify-content: center;
+}
+
+.left5 img {
+	width: 25vw;
+	height: 25vw;
+	position: absolute;
+	top: -25%;
+}
+
+.middle5 img {
+	width: 25vw;
+	height: 25vw;
+	top: -25%;
+	position: absolute;
+}
+
+.right5 img {
+	width: 25vw;
+	height: 25vw;
+	top: -25%;
+	position: absolute;
+	border-radius: 50%;
+}
+
+.left5 h4 {
+	margin-top: 30vh;
+	font-size: 2.5em;
+	color: #1A1423;
+	font-family: 'Rajdhani', sans-serif;
+	opacity: 0;
+}
+
+.middle5 h4 {
+	margin-top: 30vh;
+	font-size: 2.5em;
+	color: #1A1423;
+	font-family: 'Rajdhani', sans-serif;
+	opacity: 0;
+}
+
+.right5 h4 {
+	margin-top: 30vh;
+	font-size: 2.5em;
+	color: #1A1423;
+	font-family: 'Rajdhani', sans-serif;
+	opacity: 0;
+}
+
+.left5.start {
+	animation: moveUp 1s 1 forwards;
+}
+
+.middle5.start {
+	animation: moveUp 1s 0.25s 1 forwards;
+}
+
+.right5.start {
+	animation: moveUp 1s 0.5s 1 forwards;
+}
+
+.itemText1.start {
+	animation: fadeIn 1s 0.45s 1 forwards;
+}
+
+.itemText2.start {
+	animation: fadeIn 1s 0.7s 1 forwards;
+}
+
+.itemText3.start {
+	animation: fadeIn 1s 0.95s 1 forwards;
+}
+
+@keyframes moveUp {
+    from {
+        transform : translateY(15%);
+        opacity   : 0;
+    }
+    to {
+        transform : translateY(0%);
+        opacity   : 1;
+    }
 }
