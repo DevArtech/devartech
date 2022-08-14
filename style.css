@@ -773,20 +773,20 @@ a:hover {
 	width: 25vw;
 	height: 25vw;
 	position: absolute;
-	top: -25%;
+	top: -21vh;
 }
 
 .middle5 img {
 	width: 25vw;
 	height: 25vw;
-	top: -25%;
+	top: -21vh;
 	position: absolute;
 }
 
 .right5 img {
 	width: 25vw;
 	height: 25vw;
-	top: -25%;
+	top: -21vh;
 	position: absolute;
 	border-radius: 50%;
 }
