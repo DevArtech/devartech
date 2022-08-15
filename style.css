@@ -735,7 +735,6 @@ a:hover {
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.38);
 	width: 30vw;
-	height: 80vh;
 	opacity: 0;
 	display: flex;
 	justify-content: center;
@@ -750,7 +749,6 @@ a:hover {
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.38);
 	width: 30vw;
-	height: 80vh;
 	opacity: 0;
 	display: flex;
 	justify-content: center;
@@ -765,7 +763,6 @@ a:hover {
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.38);
 	width: 30vw;
-	height: 80vh;
 	opacity: 0;
 	display: flex;
 	justify-content: center;
@@ -857,7 +854,6 @@ a:hover {
 	font-size: 1.5em;
 	color: #1A1423;
 	margin-left: 1vw;
-	margin-top: -20vh;
 	opacity: 0;
 	font-size: 1.25em;
 }
