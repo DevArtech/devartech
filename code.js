@@ -191,4 +191,25 @@ $(window).load(function () {
             $('.waitTillLoad6').addClass('start');
         },
     });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.cardDesc1')[0],
+        enter: function() {
+            $('.cardDesc1').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.cardDesc2')[0],
+        enter: function() {
+            $('.cardDesc2').addClass('start');
+        },
+    });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.cardDesc3')[0],
+        enter: function() {
+            $('.cardDesc3').addClass('start');
+        },
+    });
 });

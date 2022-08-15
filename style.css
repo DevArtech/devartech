@@ -735,10 +735,11 @@ a:hover {
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.38);
 	width: 30vw;
-	height: 70vh;
+	height: 80vh;
 	opacity: 0;
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .middle5{
@@ -749,10 +750,11 @@ a:hover {
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.38);
 	width: 30vw;
-	height: 70vh;
+	height: 80vh;
 	opacity: 0;
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .right5{
@@ -763,10 +765,11 @@ a:hover {
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.38);
 	width: 30vw;
-	height: 70vh;
+	height: 80vh;
 	opacity: 0;
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .left5 img {
@@ -848,4 +851,35 @@ a:hover {
         transform : translateY(0%);
         opacity   : 1;
     }
+}
+
+.cardDescGen {
+	font-size: 1.5em;
+	color: #1A1423;
+	margin-left: 1vw;
+	margin-top: -20vh;
+	opacity: 0;
+	font-size: 1.25em;
+}
+
+.cardDesc1.start {
+	animation: fade 1s 0.5s 1 forwards;
+}
+
+.cardDesc2.start {
+	animation: fade 1s 0.75s 1 forwards;
+}
+
+.cardDesc3.start {
+	animation: fade 1s 1s 1 forwards;
+}
+
+.cardDescGen a {
+	color: #5126C7;
+	text-decoration: none;
+	transition: .3s;
+}
+
+.cardDescGen a:hover {
+	color: #F7AEF8;
 }
