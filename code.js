@@ -212,4 +212,32 @@ $(window).load(function () {
             $('.cardDesc3').addClass('start');
         },
     });
+
+    var in_view = new Waypoint.Inview({
+        element: $('.waitTillLoad7')[0],
+        enter: function() {
+            $('.waitTillLoad7').addClass('start');
+        },
+    });
+	
+	var in_view = new Waypoint.Inview({
+        element: $('.textIn1')[0],
+        enter: function() {
+            $('.textIn1').addClass('start');
+        },
+    });
+	
+	var in_view = new Waypoint.Inview({
+        element: $('.contact')[0],
+        enter: function() {
+            $('.contact').addClass('start');
+        },
+    });
+	
+	 var in_view = new Waypoint.Inview({
+        element: $('.waitTillLoad8')[0],
+        enter: function() {
+            $('.waitTillLoad8').addClass('start');
+        },
+    });
 });
