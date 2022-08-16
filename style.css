@@ -1140,3 +1140,7 @@ a:hover {
 	font-family: 'Rajdhani', 'sans-serif';
 	font-size: 3em;
 }
+
+.footerLinks {
+	margin-top: 7vh;
+}
