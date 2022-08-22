@@ -1111,7 +1111,7 @@ a:hover {
 }
 
 .footer {
-	height: 30vh;
+	height: 25vh;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -1126,6 +1126,8 @@ a:hover {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .rightFooter {
@@ -1139,6 +1141,14 @@ a:hover {
 	color: #F7AEF8;
 	font-family: 'Rajdhani', 'sans-serif';
 	font-size: 3em;
+	margin-bottom: -6vh;
+}
+
+.leftFooter p {
+	color: #F7AEF8;
+	font-family: 'Rajdhani', 'sans-serif';
+	font-size: 1em;
+	margin-top: -6vh;
 }
 
 .footerLinks {
