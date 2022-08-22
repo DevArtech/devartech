@@ -22,15 +22,15 @@
         <div class="menu">
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#top">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-	<section class="cover">
+	<section class="cover" id="top">
 		<div class="left1">
 			<div class="splitLeft">
                 <div class="forceBottom">
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="secondary">
+	<section class="secondary" id="about">
 		<div class="left2">
 			<ul class="res">
 				<li style="font-weight: 600; font-size: 2em; margin: 1vw;">More Info</li>
@@ -140,7 +140,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="fifth">
+	<section class="fifth" id="projects">
 		<div class="leftCover">
 			<div class="leftHandContainer">
 				<div class="textCoverUp waitTillLoad7" style="margin-bottom: 0; position: absolute; margin-top: 4.5vh; width: 23.5vw; height: 27vh;"></div>
@@ -182,7 +182,7 @@
 			</a>
 		</div>
 	</section>
-	<section class="sixth">
+	<section class="sixth" id="contact">
 		<div class="leftSideBar">
 		</div>
 		<div class="rightContactMenu">
@@ -231,10 +231,17 @@
 			</form>
 		</div>
 	</section>
-	<div style="height:30vh; width: 1px;"></div>
+	<div style="height:25vh; width: 1px;"></div>
 	<footer class="footer">
 		<div class="leftFooter">
 			<h1 style="color:white;">DevArtech</h1>
+			<div class="break" style ="flex-basis: 100%; height: 0; padding: 0; margin: 0;"></div>
+			<p>© DevArtech <span class="currentYear" id="current-year"></span></p>
+			<script>
+				const year = document.querySelector('#current-year');
+				
+				year.innerHTML = new Date().getFullYear();
+			</script>
 		</div>
 		<div class="rightFooter">
 			<ul class="footerLinks">
