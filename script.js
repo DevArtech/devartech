@@ -1,6 +1,8 @@
 let colorMode = "dark";
 let mobileFriendly = false;
 let mode = "";
+let previousInputs = [];
+let currentIndex = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   // Focus on the input field when the page is loaded
@@ -22,6 +24,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  document
+    .querySelector(".input-field")
+    .addEventListener("keydown", function (event) {
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+
+        if (currentIndex > 0) {
+          currentIndex--;
+          document.querySelector(".input-field").value =
+            previousInputs[currentIndex];
+        }
+      } else if (event.key === "ArrowDown") {
+        event.preventDefault();
+
+        if (currentIndex < previousInputs.length - 1) {
+          currentIndex++;
+          document.querySelector(".input-field").value =
+            previousInputs[currentIndex];
+        } else {
+          // If at the end, clear the input field
+          currentIndex = previousInputs.length;
+          document.querySelector(".input-field").value = "";
+        }
+      }
+    });
+
   // Add event listener for form submission
   document
     .querySelector(".input-container")
@@ -35,6 +63,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create a new element with the entered text
         const outputElement = document.createElement("div");
         outputElement.textContent = "> " + inputValue;
+        previousInputs.length === 0 ||
+        previousInputs[previousInputs.length - 1] !== inputValue
+          ? previousInputs.push(inputValue)
+          : null;
+        currentIndex = previousInputs.length;
         outputElement.classList.add("terminal-input");
 
         // Append the element to the page
@@ -66,8 +99,7 @@ function checkInput(input) {
     } else if (i === "contacts" || i === "contact" || i === "co") {
       appendNewlines(contacts);
     } else if (i === "higher-or-lower" || i === "hl") {
-      mode = "higher-or-lower";
-      runMode(input);
+      runMode("higher-or-lower");
     } else if (i === "invert" || i === "i") {
       invertPage();
     } else if (i === "mobile-friendly" || i === "mf") {
@@ -85,38 +117,47 @@ function checkInput(input) {
 let number = -1;
 
 function runMode(input) {
-  switch (mode) {
-    case "higher-or-lower":
-      if (number == -1) {
-        number = Math.floor(Math.random() * 100) + 1;
-        appendNewlines(
-          "Playing Higher or Lower.\nGuess a number between 1 and 100."
-        );
-      } else {
-        const value = parseInt(input, 10);
-        if (!isNaN(value) && value >= 1 && value <= 100) {
-          if (value > number) {
-            appendNewlines("The number is lower.");
-          } else if (value < number) {
-            appendNewlines("The number is higher.");
-          } else {
-            appendNewlines("You got the number!\nExiting Higher or Lower.");
-            number = -1;
-            mode = "";
-          }
-        } else {
-          appendNewlines("Please enter a number between 1 and 100.");
-        }
+  if (input === "exit") {
+    mode = "";
+    number = -1;
+    appendNewlines("Exiting.");
+  } else {
+    if (mode === "") {
+      switch (input) {
+        case "higher-or-lower":
+          mode = "higher-or-lower";
+          break;
       }
-      break;
-    default:
-      break;
-  }
-}
+    }
 
-function runHigherOrLower() {
-  mode = "higher-or-lower";
-  runMode("");
+    switch (mode) {
+      case "higher-or-lower":
+        if (number == -1) {
+          number = Math.floor(Math.random() * 100) + 1;
+          appendNewlines(
+            "Playing Higher or Lower.\nGuess a number between 1 and 100."
+          );
+        } else {
+          const value = parseInt(input, 10);
+          if (!isNaN(value) && value >= 1 && value <= 100) {
+            if (value > number) {
+              appendNewlines("The number is lower.");
+            } else if (value < number) {
+              appendNewlines("The number is higher.");
+            } else {
+              appendNewlines("You got the number!\nExiting Higher or Lower.");
+              number = -1;
+              mode = "";
+            }
+          } else {
+            appendNewlines("Please enter a number between 1 and 100.");
+          }
+        }
+        break;
+      default:
+        break;
+    }
+  }
 }
 
 function isMathematicalOperator(input) {
@@ -217,6 +258,14 @@ function performMath(expression) {
 }
 
 function switchMobileFriendly() {
+  const outputElement = document.createElement("div");
+  outputElement.textContent = "> mobile-friendly";
+  outputElement.classList.add("terminal-input");
+  previousInputs.length === 0 ||
+  previousInputs[previousInputs.length - 1] !== "mobile-friendly"
+    ? previousInputs.push("mobile-friendly")
+    : null;
+  currentIndex = previousInputs.length;
   if (mobileFriendly) {
     const dark = document.querySelectorAll(".dark");
     for (let i = 0; i < dark.length; i++) {
@@ -233,6 +282,8 @@ function switchMobileFriendly() {
 }
 
 function clearPage() {
+  previousInputs = [];
+  previousInputs.length = 0;
   const outputElements = document.querySelectorAll(".terminal-input");
   outputElements.forEach(function (element) {
     element.remove();
@@ -241,6 +292,15 @@ function clearPage() {
 }
 
 function invertPage() {
+  const outputElement = document.createElement("div");
+  outputElement.textContent = "> invert";
+  outputElement.classList.add("terminal-input");
+  previousInputs.length === 0 ||
+  previousInputs[previousInputs.length - 1] !== "invert"
+    ? previousInputs.push("invert")
+    : null;
+  currentIndex = previousInputs.length;
+
   let newColorMode = colorMode;
   if (colorMode == "dark") {
     newColorMode = "light";
@@ -259,13 +319,81 @@ function invertPage() {
   colorMode = newColorMode;
 }
 
+async function getWeather() {
+  document.querySelector(".input-field").disabled = true;
+  try {
+    const response = await fetch("https://wttr.in");
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, "text/html");
+    const preElement = doc.querySelector("pre");
+    const preContent = preElement ? preElement.innerHTML : null;
+
+    appendNewlines(preContent);
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+
+function getProjects() {
+  const outputElement = document.createElement("div");
+  outputElement.textContent = "> projects";
+  outputElement.classList.add("terminal-input");
+  previousInputs.length === 0 ||
+  previousInputs[previousInputs.length - 1] !== "projects"
+    ? previousInputs.push("projects")
+    : null;
+  currentIndex = previousInputs.length;
+
+  // Append the element to the page
+  document.querySelector(".body").appendChild(outputElement);
+  window.scrollTo(0, document.body.scrollHeight);
+  appendNewlines(projects);
+}
+
+function getContacts() {
+  const outputElement = document.createElement("div");
+  outputElement.textContent = "> contacts";
+  outputElement.classList.add("terminal-input");
+  previousInputs.length === 0 ||
+  previousInputs[previousInputs.length - 1] !== "contacts"
+    ? previousInputs.push("contacts")
+    : null;
+  currentIndex = previousInputs.length;
+
+  // Append the element to the page
+  document.querySelector(".body").appendChild(outputElement);
+  window.scrollTo(0, document.body.scrollHeight);
+  appendNewlines(contacts);
+}
+
+function weather() {
+  const outputElement = document.createElement("div");
+  outputElement.textContent = "> weather";
+  outputElement.classList.add("terminal-input");
+  previousInputs.length === 0 ||
+  previousInputs[previousInputs.length - 1] !== "weather"
+    ? previousInputs.push("weather")
+    : null;
+  currentIndex = previousInputs.length;
+
+  // Append the element to the page
+  document.querySelector(".body").appendChild(outputElement);
+  window.scrollTo(0, document.body.scrollHeight);
+  getWeather();
+}
+
 function appendNewlines(text) {
   document.querySelector(".input-field").disabled = true;
   let resultString = "";
 
   const numChars = text.length;
   if (text.indexOf("\n") === -1) {
-    console.log("me2");
     const outputElement = document.createElement("div");
     // Parse the resultString and add colorMode class
     const parser = new DOMParser();
@@ -281,7 +409,6 @@ function appendNewlines(text) {
     outputElement.classList.add("terminal-input");
     document.querySelector(".body").appendChild(outputElement);
   } else {
-    console.log("me");
     for (let i = 0; i < text.length; i++) {
       if (text[i] === "\n") {
         const outputElement = document.createElement("div");
@@ -330,7 +457,7 @@ function appendNewlines(text) {
       setTimeout(() => {
         document.querySelector(".body").appendChild(outputElement);
         window.scrollTo(0, document.body.scrollHeight);
-      }, text.length * 0.05);
+      }, text.length * 0.25);
 
       resultString = "";
     }
@@ -339,60 +466,6 @@ function appendNewlines(text) {
     document.querySelector(".input-field").disabled = false;
     document.querySelector(".input-field").focus();
   }, numChars * 0.25);
-}
-
-async function getWeather() {
-  document.querySelector(".input-field").disabled = true;
-  try {
-    const response = await fetch("https://wttr.in");
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data, "text/html");
-    const preElement = doc.querySelector("pre");
-    const preContent = preElement ? preElement.innerHTML : null;
-
-    appendNewlines(preContent);
-  } catch (error) {
-    console.error("Error:", error.message);
-  }
-}
-
-function getProjects() {
-  const outputElement = document.createElement("div");
-  outputElement.textContent = "> projects";
-  outputElement.classList.add("terminal-input");
-
-  // Append the element to the page
-  document.querySelector(".body").appendChild(outputElement);
-  window.scrollTo(0, document.body.scrollHeight);
-  appendNewlines(projects);
-}
-
-function getContacts() {
-  const outputElement = document.createElement("div");
-  outputElement.textContent = "> contacts";
-  outputElement.classList.add("terminal-input");
-
-  // Append the element to the page
-  document.querySelector(".body").appendChild(outputElement);
-  window.scrollTo(0, document.body.scrollHeight);
-  appendNewlines(contacts);
-}
-
-function weather() {
-  const outputElement = document.createElement("div");
-  outputElement.textContent = "> weather";
-  outputElement.classList.add("terminal-input");
-
-  // Append the element to the page
-  document.querySelector(".body").appendChild(outputElement);
-  window.scrollTo(0, document.body.scrollHeight);
-  getWeather();
 }
 
 const currentYear = new Date().getFullYear();
@@ -419,7 +492,7 @@ Available Commands (Pages):
  - <a href="javascript:void(0)" onclick="getProjects()">projects, p</a>: List the current projects DevArtech is working on or has worked on.
  - <a href="javascript:void(0)" onclick="getContacts()">contact, co</a>: Contact information for DevArtech.
  - <a href="javascript:void(0)" onclick="weather()">weather wttr</a>: Get the current weather of your area.
- - <a href="javascript:void(0)" onclick="runHigherOrLower()">higher-or-lower hl</a>: Play Higher or Lower.
+ - <a href="javascript:void(0)" onclick="runMode('higher-or-lower')">higher-or-lower hl</a>: Play Higher or Lower.
  - <a href="javascript:void(0)" onclick="invertPage()">invert i</a>: Invert the page's color.
  - <a href="javascript:void(0)" onclick="clearPage()">clear c</a>: Clear the terminal.
  - <a href="javascript:void(0)" onclick="switchMobileFriendly()">mobile-friendly mf</a>: Switch effects to mobile-friendly.
