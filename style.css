@@ -23,7 +23,7 @@ html.dark {
 }
 
 html.light {
-  background: #ece3ee;
+  background: #faf8fa;
   animation: none;
 }
 
@@ -32,7 +32,7 @@ a.dark {
 }
 
 a.light {
-  color: rgb(0, 54, 4);
+  color: #009901;
 }
 
 div {
@@ -58,7 +58,7 @@ div {
 }
 
 .input-prefix.light {
-  color: rgb(0, 95, 8);
+  color: #009901;
 }
 
 .input-field.dark.mf {
@@ -104,6 +104,10 @@ div {
   min-width: 100%;
   height: 100%;
   z-index: 5;
+}
+
+.scanlines.dark {
+  background-size: auto, auto;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
     linear-gradient(
       90deg,
@@ -111,7 +115,18 @@ div {
       rgba(0, 255, 0, 0.02),
       rgba(0, 0, 255, 0.06)
     );
+  background-size: 100% 2px, 3px 100%;
+}
+
+.scanlines.light {
   background-size: auto, auto;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
   background-size: 100% 2px, 3px 100%;
 }
 

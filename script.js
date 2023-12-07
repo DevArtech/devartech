@@ -1,5 +1,6 @@
 let colorMode = "dark";
 let mobileFriendly = false;
+let mode = "";
 
 document.addEventListener("DOMContentLoaded", function () {
   // Focus on the input field when the page is loaded
@@ -53,25 +54,69 @@ document.addEventListener("DOMContentLoaded", function () {
 function checkInput(input) {
   const i = input.toLowerCase();
 
-  if (isMathematicalOperator(i)) {
-    performMath(i);
-  } else if (i === "help" || i === "h") {
-    appendNewlines(help);
-  } else if (i === "weather" || i === "wttr" || i === "w") {
-    getWeather();
-  } else if (i === "projects" || i === "project" || i === "p") {
-    appendNewlines(projects);
-  } else if (i === "contacts" || i === "contact" || i === "co") {
-    appendNewlines(contacts);
-  } else if (i === "invert" || i === "i") {
-    invertPage();
-  } else if (i === "mobile-friendly" || i === "mf") {
-    switchMobileFriendly();
-  } else if (i === "clear" || i === "c") {
-    clearPage();
+  if (mode == "") {
+    if (isMathematicalOperator(i)) {
+      performMath(i);
+    } else if (i === "help" || i === "h") {
+      appendNewlines(help);
+    } else if (i === "weather" || i === "wttr" || i === "w") {
+      getWeather();
+    } else if (i === "projects" || i === "project" || i === "p") {
+      appendNewlines(projects);
+    } else if (i === "contacts" || i === "contact" || i === "co") {
+      appendNewlines(contacts);
+    } else if (i === "higher-or-lower" || i === "hl") {
+      mode = "higher-or-lower";
+      runMode(input);
+    } else if (i === "invert" || i === "i") {
+      invertPage();
+    } else if (i === "mobile-friendly" || i === "mf") {
+      switchMobileFriendly();
+    } else if (i === "clear" || i === "c") {
+      clearPage();
+    } else {
+      appendNewlines(error);
+    }
   } else {
-    appendNewlines(error);
+    runMode(input);
   }
+}
+
+let number = -1;
+
+function runMode(input) {
+  switch (mode) {
+    case "higher-or-lower":
+      if (number == -1) {
+        number = Math.floor(Math.random() * 100) + 1;
+        appendNewlines(
+          "Playing Higher or Lower.\nGuess a number between 1 and 100."
+        );
+      } else {
+        const value = parseInt(input, 10);
+        if (!isNaN(value) && value >= 1 && value <= 100) {
+          if (value > number) {
+            appendNewlines("The number is lower.");
+          } else if (value < number) {
+            appendNewlines("The number is higher.");
+          } else {
+            appendNewlines("You got the number!\nExiting Higher or Lower.");
+            number = -1;
+            mode = "";
+          }
+        } else {
+          appendNewlines("Please enter a number between 1 and 100.");
+        }
+      }
+      break;
+    default:
+      break;
+  }
+}
+
+function runHigherOrLower() {
+  mode = "higher-or-lower";
+  runMode("");
 }
 
 function isMathematicalOperator(input) {
@@ -188,7 +233,6 @@ function switchMobileFriendly() {
 }
 
 function clearPage() {
-  // Clear the page
   const outputElements = document.querySelectorAll(".terminal-input");
   outputElements.forEach(function (element) {
     element.remove();
@@ -217,9 +261,11 @@ function invertPage() {
 
 function appendNewlines(text) {
   document.querySelector(".input-field").disabled = true;
-  // Console.log all lines of text while maintaining the whitespace
+  let resultString = "";
+
   const numChars = text.length;
   if (text.indexOf("\n") === -1) {
+    console.log("me2");
     const outputElement = document.createElement("div");
     // Parse the resultString and add colorMode class
     const parser = new DOMParser();
@@ -235,7 +281,7 @@ function appendNewlines(text) {
     outputElement.classList.add("terminal-input");
     document.querySelector(".body").appendChild(outputElement);
   } else {
-    let resultString = "";
+    console.log("me");
     for (let i = 0; i < text.length; i++) {
       if (text[i] === "\n") {
         const outputElement = document.createElement("div");
@@ -265,6 +311,28 @@ function appendNewlines(text) {
           resultString += text[i];
         }
       }
+    }
+    if (resultString != "") {
+      const outputElement = document.createElement("div");
+      // Parse the resultString and add colorMode class
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(resultString, "text/html");
+
+      const elements = doc.querySelectorAll("*");
+
+      elements.forEach((element) => {
+        element.classList.add(colorMode);
+      });
+
+      outputElement.innerHTML = doc.documentElement.outerHTML;
+      outputElement.classList.add("terminal-input");
+
+      setTimeout(() => {
+        document.querySelector(".body").appendChild(outputElement);
+        window.scrollTo(0, document.body.scrollHeight);
+      }, text.length * 0.05);
+
+      resultString = "";
     }
   }
   setTimeout(() => {
@@ -351,6 +419,7 @@ Available Commands (Pages):
  - <a href="javascript:void(0)" onclick="getProjects()">projects, p</a>: List the current projects DevArtech is working on or has worked on.
  - <a href="javascript:void(0)" onclick="getContacts()">contact, co</a>: Contact information for DevArtech.
  - <a href="javascript:void(0)" onclick="weather()">weather wttr</a>: Get the current weather of your area.
+ - <a href="javascript:void(0)" onclick="runHigherOrLower()">higher-or-lower hl</a>: Play Higher or Lower.
  - <a href="javascript:void(0)" onclick="invertPage()">invert i</a>: Invert the page's color.
  - <a href="javascript:void(0)" onclick="clearPage()">clear c</a>: Clear the terminal.
  - <a href="javascript:void(0)" onclick="switchMobileFriendly()">mobile-friendly mf</a>: Switch effects to mobile-friendly.
@@ -394,6 +463,4 @@ Instagram: <a href='https://www.instagram.com/devartech/' target="_blank">instag
 LinkedIn: <a href='https://www.linkedin.com/in/devartech/' target="_blank">linkedin.com/in/devartech</a>
 `;
 
-const error = `
-Unknown command. Type "help" to get started.
-`;
+const error = `Unknown command. Type "help" to get started.`;
