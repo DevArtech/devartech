@@ -327,6 +327,8 @@ function weather() {
   getWeather();
 }
 
+const currentYear = new Date().getFullYear();
+
 const init = `
 ▓█████▄ ▓█████ ██▒   █▓ ▄▄▄       ██▀███  ▄▄▄█████▓▓█████  ▄████▄   ██░ ██ 
 ▒██▀ ██▌▓█   ▀▓██░   █▒▒████▄    ▓██ ▒ ██▒▓  ██▒ ▓▒▓█   ▀ ▒██▀ ▀█  ▓██░ ██▒
@@ -339,7 +341,7 @@ const init = `
    ░       ░  ░     ░        ░  ░   ░                 ░  ░░ ░       ░  ░  ░
  ░                 ░                                      ░             
  ​
-Type 'help' to get started.
+Type 'help' to get started. © DevArtech ${currentYear}
 `;
 
 const help = `
