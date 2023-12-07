@@ -90,8 +90,10 @@ function checkInput(input) {
   if (mode == "") {
     if (isMathematicalOperator(i)) {
       performMath(i);
-    } else if (i === "help" || i === "h") {
-      appendNewlines(help);
+    } else if (i === "h") {
+      appendNewlines(commands);
+    } else if (i === "help") {
+      appendNewlines(commands + "\n ​\n" + help);
     } else if (i === "weather" || i === "wttr" || i === "w") {
       getWeather();
     } else if (i === "projects" || i === "project" || i === "p") {
@@ -485,18 +487,20 @@ const init = `
 Type 'help' to get started. © DevArtech ${currentYear}
 `;
 
-const help = `
-Welcome to the portfolio page of DevArtech!
-​
+const commands = `
 Available Commands (Pages):
  - <a href="javascript:void(0)" onclick="getProjects()">projects, p</a>: List the current projects DevArtech is working on or has worked on.
  - <a href="javascript:void(0)" onclick="getContacts()">contact, co</a>: Contact information for DevArtech.
- - <a href="javascript:void(0)" onclick="weather()">weather wttr</a>: Get the current weather of your area.
- - <a href="javascript:void(0)" onclick="runMode('higher-or-lower')">higher-or-lower hl</a>: Play Higher or Lower.
- - <a href="javascript:void(0)" onclick="invertPage()">invert i</a>: Invert the page's color.
- - <a href="javascript:void(0)" onclick="clearPage()">clear c</a>: Clear the terminal.
- - <a href="javascript:void(0)" onclick="switchMobileFriendly()">mobile-friendly mf</a>: Switch effects to mobile-friendly.
+ - <a href="javascript:void(0)" onclick="weather()">weather, wttr</a>: Get the current weather of your area.
+ - <a href="javascript:void(0)" onclick="runMode('higher-or-lower')">higher-or-lower, hl</a>: Play Higher or Lower.
+ - <a href="javascript:void(0)" onclick="invertPage()">invert, i</a>: Invert the page's color.
+ - <a href="javascript:void(0)" onclick="clearPage()">clear, c</a>: Clear the terminal.
+ - <a href="javascript:void(0)" onclick="switchMobileFriendly()">mobile-friendly, mf</a>: Switch effects to mobile-friendly.
  - Math: Input any algebraic expression to be evaluated.
+`
+
+const help = `
+Welcome to the portfolio page of DevArtech!
  ​
 I am Artech, also known as DevArtech or Adam Haile, and I am a current computer science student at MSOE. 
 I am most well known for my game development and MC Map creation but am also an avid Additive Manufacturer 
