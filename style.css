@@ -23,16 +23,16 @@ html.dark {
 }
 
 html.light {
-  background: #faf8fa;
+  background: #f2ecf0;
   animation: none;
 }
 
 a.dark {
-  color: rgb(208, 0, 255);
+  color: #D000FF;
 }
 
 a.light {
-  color: #009901;
+  color: #136700;
 }
 
 div {
@@ -50,15 +50,15 @@ div {
 }
 
 .page.light {
-  color: rgb(63, 0, 73);
+  color: #ff66fe;
 }
 
 .input-prefix.dark {
-  color: rgb(208, 0, 255);
+  color: #D000FF;
 }
 
 .input-prefix.light {
-  color: #009901;
+  color: #136700;
 }
 
 .input-field.dark.mf {
@@ -70,7 +70,7 @@ div {
 }
 
 .input-field.light {
-  color: rgb(71, 0, 77);
+  color: #ff66fe;
   animation: none;
 }
 
