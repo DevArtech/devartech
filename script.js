@@ -106,6 +106,8 @@ function checkInput(input) {
       runMode("rock-paper-scissors");
     } else if (i === "blackjack" || i === "b") {
       runMode("blackjack");
+    } else if (i === "hangman" || i === "hm") {
+      runMode("hangman");
     } else if (i === "invert" || i === "i") {
       invertPage();
     } else if (i === "mobile-friendly" || i === "mf") {
@@ -122,9 +124,12 @@ function checkInput(input) {
 
 // Run specific program which requires user feedback
 let number = -1;
+let secondaryNumber = 0;
+let sentence = "";
+let savedSentence = "";
+let lettersUsed = [];
 let deck = createDeck();
 let hands = []
-let hlHighScore = 0;
 
 function runMode(input) {
   // Determine input or if user wishes to exit
@@ -144,6 +149,9 @@ function runMode(input) {
         case "blackjack":
           mode = "blackjack";
           break;
+        case "hangman":
+          mode = "hangman";
+          break;
       }
     }
 
@@ -153,7 +161,7 @@ function runMode(input) {
       case "higher-or-lower":
         if (number == -1) {
           number = Math.floor(Math.random() * 100) + 1;
-          hlHighScore = 0;
+          secondaryNumber = 0;
           appendNewlines(
             "Playing Higher or Lower. Type \"exit\" to exit.\nGuess a number between 1 and 100."
           );
@@ -161,18 +169,18 @@ function runMode(input) {
           const value = parseInt(input, 10);
           if (!isNaN(value) && value >= 1 && value <= 100) {
             if (value > number) {
-              hlHighScore += 1;
+              secondaryNumber += 1;
               appendNewlines("The number is lower.");
             } else if (value < number) {
-              hlHighScore += 1;
+              secondaryNumber += 1;
               appendNewlines("The number is higher.");
             } else {
-              if(hlHighScore < getStoredScore("hl") || isNaN(getStoredScore("hl"))) {
-                storeScore("hl", hlHighScore);
+              if(secondaryNumber < getStoredScore("hl") || isNaN(getStoredScore("hl"))) {
+                storeScore("hl", secondaryNumber);
                 appendNewlines(`New High Score!`);
-                appendNewlines(`You got the number in ${hlHighScore} guesses!\nExiting.`);
+                appendNewlines(`You got the number in ${secondaryNumber} guesses!\nExiting.`);
               } else {
-                appendNewlines(`You got the number in ${hlHighScore} guesses!`);
+                appendNewlines(`You got the number in ${secondaryNumber} guesses!`);
               }
               number = -1;
               mode = "";
@@ -332,10 +340,101 @@ function runMode(input) {
             appendNewlines("Invalid input, Play Again? (Y/N)");
           }
         }
+        break;
+      case "hangman":
+          if(number === -1) {
+            number = 0;
+            sentence = "";
+            lettersUsed = [];
+            savedSentence = generateHangmanSentence();
+            for (let i = 0; i < savedSentence.length; i++) {
+              if(savedSentence[i] !== " ") {
+                sentence += "_ ";
+              } else {
+                sentence += " ";
+              }
+            }
+            appendNewlines("Playing Hangman. Type \"exit\" to exit.\n+---+\n |   |\n |    \n |    \n |    \n |    \n-\n" + sentence);
+          } else if(number === 0) {
+            const letter = input.toLowerCase();
+            if(letter.length === 1) {
+              if(lettersUsed.includes(letter)) {
+                appendNewlines("You've already used this letter. Try again.");
+              } else {
+                lettersUsed.push(letter);
+                if(savedSentence.includes(letter)) {
+                  let newSentence = "";
+                  for (let i = 0; i < savedSentence.length; i++) {
+                    const currentChar = savedSentence[i];
+                
+                    if (lettersUsed.includes(currentChar.toLowerCase())) {
+                      newSentence += currentChar + " ";
+                    } else if (currentChar === ' ') {
+                      newSentence += ' ';
+                    } else {
+                      newSentence += '_ ';
+                    }
+                  }
+                  sentence = newSentence;
+                  if(sentence.indexOf("_") === -1) {
+                    appendNewlines("You win!\n" + sentence + "\nPlay again? (Y/N)");
+                    number = 2;
+                  } else {
+                    appendNewlines("Correct!\n" + sentence);
+                  }
+                } else {
+                  secondaryNumber += 1;
+                  if(secondaryNumber === 1) {
+                    appendNewlines("The sentence does not contain \"" + letter + "\"\n" + sentence + "\n+---+\n |   |\n |   O\n |    \n |    \n |    \n-\n");
+                  } else if(secondaryNumber === 2) {
+                    appendNewlines("The sentence does not contain \"" + letter + "\"\n" + sentence + "\n+---+\n |   |\n |   O\n |   |\n |    \n |    \n-\n");
+                  } else if(secondaryNumber === 3) {
+                    appendNewlines("The sentence does not contain \"" + letter + "\"\n" + sentence + "\n+---+\n |   |\n |   O\n |  \\|\n |    \n |    \n-\n");
+                  } else if(secondaryNumber === 4) {
+                    appendNewlines("The sentence does not contain \"" + letter + "\"\n" + sentence + "\n+---+\n |   |\n |   O\n |  \\|/\n |    \n |    \n-\n");
+                  } else if(secondaryNumber === 5) {
+                    appendNewlines("The sentence does not contain \"" + letter + "\"\n" + sentence + "\n+---+\n |   |\n |   O\n |  \\|/\n |  /\n |    \n-\n");
+                  } else if(secondaryNumber === 6) {
+                    appendNewlines("The sentence does not contain \"" + letter + "\"\n" + sentence + 
+                    "\n+---+\n |   |\n |   O\n |  \\|/\n |  / \\\n |    \n-\nYou lose!\nThe sentence was: " + 
+                    savedSentence + "\nPlay again? (Y/N)");
+                    number = 2;
+                  }
+                }
+              }
+            } else {
+              appendNewlines("Please enter a single letter.");
+            }
+          } else if(number === 2) {
+            if(input.toLowerCase() === "y") {
+              number = -1;
+              runMode("hangman");
+            } else if(input.toLowerCase() === "n") {
+              number = -1;
+              mode = "";
+              appendNewlines("Exiting Hangman.");
+            } else {
+              appendNewlines("Invalid input, Play Again? (Y/N)");
+            }
+          }
+        break;
       default:
         break;
     }
   }
+}
+
+function generateHangmanSentence() {
+  const subjects = ['The cat', 'A dog', 'My friend', 'The sun', 'A bird', 'A robot', 'The ocean', 'The moon'];
+  const verbs = ['runs', 'jumps', 'sleeps', 'flies', 'sings', 'dances', 'laughs', 'swims'];
+  const objects = ['in the garden', 'on the roof', 'under the table', 'over the rainbow', 'through the forest', 'on the beach', 'in the sky', 'between the mountains'];
+
+  const subject = subjects[Math.floor(Math.random() * subjects.length)];
+  const verb = verbs[Math.floor(Math.random() * verbs.length)];
+  const object = objects[Math.floor(Math.random() * objects.length)];
+
+  const sentence = subject + " " + verb + " " + object;
+  return sentence;
 }
 
 function storeScore(index, integerValue) {
@@ -776,6 +875,7 @@ Available Commands (Pages):
  - <a href="javascript:void(0)" onclick="runMode('higher-or-lower')">higher-or-lower, hl</a>: Play Higher or Lower.
  - <a href="javascript:void(0)" onclick="runMode('rock-paper-scissors')">rock-paper-scissors, rps</a>: Play Rock, Paper, Scissors.
  - <a href="javascript:void(0)" onclick="runMode('blackjack')">blackjack, b</a>: Play Blackjack. (Note: Aces play 11 unless they exceed 21, then they are 1.)
+ - <a href="javascript:void(0)" onclick="runMode('hangman')">hangman, hm</a>: Play Hangman.
  - <a href="javascript:void(0)" onclick="invertPage()">invert, i</a>: Invert the page's color.
  - <a href="javascript:void(0)" onclick="clearPage()">clear, c</a>: Clear the terminal.
  - <a href="javascript:void(0)" onclick="switchMobileFriendly()">mobile-friendly, mf</a>: Switch effects to mobile-friendly.
