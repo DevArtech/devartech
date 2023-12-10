@@ -425,9 +425,9 @@ function runMode(input) {
 }
 
 function generateHangmanSentence() {
-  const subjects = ['The cat', 'A dog', 'My friend', 'The sun', 'A bird', 'A robot', 'The ocean', 'The moon'];
-  const verbs = ['runs', 'jumps', 'sleeps', 'flies', 'sings', 'dances', 'laughs', 'swims'];
-  const objects = ['in the garden', 'on the roof', 'under the table', 'over the rainbow', 'through the forest', 'on the beach', 'in the sky', 'between the mountains'];
+  const subjects = ['The cat', 'A dog', 'My friend', 'The sun', 'A bird', 'A robot', 'The ocean', 'The moon', 'The woman', 'A man', 'The child', 'Superman', 'DevArtech', 'The student'];
+  const verbs = ['runs', 'jumps', 'sleeps', 'flies', 'sings', 'dances', 'laughs', 'swims', 'studies', 'writes', 'plays', 'climbs', 'eats'];
+  const objects = ['in the garden', 'on the roof', 'under the table', 'over the rainbow', 'through the forest', 'on the beach', 'in the sky', 'between the mountains', 'in the house', 'with the man', 'with the cat', 'with the dog', 'on the tree'];
 
   const subject = subjects[Math.floor(Math.random() * subjects.length)];
   const verb = verbs[Math.floor(Math.random() * verbs.length)];
