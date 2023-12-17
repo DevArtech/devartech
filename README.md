@@ -8,7 +8,8 @@
  - 😄 Pronouns: He/Him   
  - 📫 Feel free to reach out at: iamhaile222@gmail.com
 
-### Languages and Tools   
+### Languages and Tools
+<div style="flex">
 <img height="22" width="24" src="https://cdn.simpleicons.org/python/black/white"/>
 <img height="24" width="24" src="https://cdn.simpleicons.org/tensorflow/black/white"/>
 <img height="24" width="24" src="https://cdn.simpleicons.org/postgres/black/white"/>
@@ -20,3 +21,4 @@
 <img height="24" width="24" src="https://cdn.simpleicons.org/microsoftexcel/black/white"/>
 <img height="24" width="24" src="https://cdn.simpleicons.org/unrealengine/black/white"/>
 <img height="24" width="24" src="https://cdn.simpleicons.org/unity/black/white"/>
+</div>
