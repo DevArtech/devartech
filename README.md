@@ -10,6 +10,38 @@
 
 ### Stats
 <!--START_SECTION:waka-->
+![Profile Views](http://img.shields.io/badge/Profile%20Views-135-blue)
+
+**🐱 My GitHub Data** 
+
+> 📦 65.4 kB Used in GitHub's Storage 
+ > 
+> 🏆 98 Contributions in the Year 2023
+ > 
+> 🚫 Not Opted to Hire
+ > 
+> 📜 34 Public Repositories 
+ > 
+> 🔑 6 Private Repositories 
+ > 
+**I Mostly Code in Ruby** 
+
+```text
+JavaScript               6 repos             █████░░░░░░░░░░░░░░░░░░░░   21.43 % 
+Java                     5 repos             ████░░░░░░░░░░░░░░░░░░░░░   17.86 % 
+Python                   3 repos             ███░░░░░░░░░░░░░░░░░░░░░░   10.71 % 
+Jupyter Notebook         2 repos             ██░░░░░░░░░░░░░░░░░░░░░░░   07.14 % 
+CSS                      2 repos             ██░░░░░░░░░░░░░░░░░░░░░░░   07.14 % 
+```
+
+
+
+**Timeline**
+
+![Lines of Code chart](https://raw.githubusercontent.com/DevArtech/DevArtech/main/assets/bar_graph.png)
+
+
+ Last Updated on 17/12/2023 23:23:24 UTC
 <!--END_SECTION:waka-->
 
 ### Languages and Tools
