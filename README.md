@@ -9,7 +9,7 @@
  - 📫 Feel free to reach out at: iamhaile222@gmail.com
 
 ### Languages and Tools
-<div style="flex">
+<div style="display: flex; gap: 0.25rem;">
 <img height="30" width="30" src="https://cdn.simpleicons.org/python/black/white"/>
 <img height="30" width="30" src="https://cdn.simpleicons.org/tensorflow/black/white"/>
 <img height="30" width="30" src="https://cdn.simpleicons.org/postgres/black/white"/>
