@@ -8,6 +8,10 @@
  - 😄 Pronouns: He/Him   
  - 📫 Feel free to reach out at: iamhaile222@gmail.com
 
+### Stats
+<!--START_SECTION:waka-->
+<!--END_SECTION:waka-->
+
 ### Languages and Tools
 <div style="display: flex; gap: 0.25rem;">
 <img height="30" width="30" src="https://cdn.simpleicons.org/python/black/white"/>
