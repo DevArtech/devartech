@@ -10,13 +10,13 @@
 
 ### Stats
 <!--START_SECTION:waka-->
-![Profile Views](http://img.shields.io/badge/Profile%20Views-90-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-203-blue)
 
 **🐱 My GitHub Data** 
 
 > 📦 65.4 kB Used in GitHub's Storage 
  > 
-> 🏆 99 Contributions in the Year 2023
+> 🏆 100 Contributions in the Year 2023
  > 
 > 🚫 Not Opted to Hire
  > 
@@ -24,6 +24,16 @@
  > 
 > 🔑 6 Private Repositories 
  > 
+📊 **This Week I Spent My Time On** 
+
+```text
+💬 Programming Languages: 
+No Activity Tracked This Week
+
+🐱‍💻 Projects: 
+No Activity Tracked This Week
+```
+
 
 <!--END_SECTION:waka-->
 
