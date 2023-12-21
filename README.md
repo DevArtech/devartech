@@ -10,9 +10,9 @@
 
 ### Stats
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-0%20secs-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-4%20hrs%2021%20mins-blue)
 
-![Profile Views](http://img.shields.io/badge/Profile%20Views-202-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-159-blue)
 
 **🐱 My GitHub Data** 
 
@@ -30,10 +30,14 @@
 
 ```text
 💬 Programming Languages: 
-No Activity Tracked This Week
+TypeScript               4 hrs 35 mins       █████████████░░░░░░░░░░░░   50.18 % 
+Python                   4 hrs 21 mins       ████████████░░░░░░░░░░░░░   47.68 % 
+CSS                      9 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.72 % 
+Other                    1 min               ░░░░░░░░░░░░░░░░░░░░░░░░░   00.29 % 
+Bash                     0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.13 % 
 
 🐱‍💻 Projects: 
-No Activity Tracked This Week
+cx-command-center        9 hrs 8 mins        █████████████████████████   100.00 % 
 ```
 
 
