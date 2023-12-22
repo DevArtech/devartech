@@ -23,3 +23,4 @@ jobs:
           SHOW_EDITORS: "False"
           SHOW_LANGUAGE_PER_REPO: "False"
           IGNORED_REPOS: "ameliesite"
+          SHOW_PROJECTS: "False"
