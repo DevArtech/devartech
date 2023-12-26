@@ -42,18 +42,7 @@ Bash                     0 secs              ░░░░░░░░░░░�
 
 ### Languages and Tools
 <div style="display: flex; gap: 0.25rem;">
- <img height="30" width="30" src="https://cdn.simpleicons.org/python/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/tensorflow/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/postgres/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/amazonaws/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/javascript/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/react/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/csharp/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/cplusplus/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/ruby/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/html5/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/css3/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/microsoftexcel/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/unrealengine/black/white"/>
- <img height="30" width="30" src="https://cdn.simpleicons.org/unity/black/white"/>
+ ![Python](https://img.shields.io/badge/Python?logo=python&labelColor=%233776AB&color=%233776AB)
+ ![React](https://img.shields.io/badge/React?logo=react&labelColor=%2361DAFB&color=%2361DAFB)
+ ![HTML5](https://img.shields.io/badge/HTML?logo=html5&labelColor=%23E34F26&color=%23E34F26)
 </div>
