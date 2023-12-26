@@ -41,6 +41,7 @@ Bash                     0 secs              ░░░░░░░░░░░�
 <!--END_SECTION:waka-->
 
 ### Languages and Tools
-![Static Badge](https://img.shields.io/badge/Python?logo=python&labelColor=%233776AB&color=%233776AB)
-![Static Badge](https://img.shields.io/badge/React?logo=react&labelColor=%2361DAFB&color=%2361DAFB)
-![Static Badge](https://img.shields.io/badge/HTML?logo=html5&labelColor=%23E34F26&color=%23E34F26)
+![Static Badge](https://img.shields.io/badge/Python-%233776AB?logo=python&logoColor=%23FFFFFF)
+![Static Badge](https://img.shields.io/badge/React-%2361DAFB?logo=react&logoColor=%23000000)
+![Static Badge](https://img.shields.io/badge/HTML-%23E34F26?logo=html5&logoColor=%23FFFFFF)
+
