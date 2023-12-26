@@ -1,7 +1,7 @@
 ![Github Banner](https://github.com/DevArtech/devartech/blob/main/GithubBanner.png?raw=true)
 # Data Science and Deep Learning at your service! 🤖
 
- - 🔭 I'm currently working on: [SkyNet, An AI to play Skyjo](https://github.com/DevArtech/skynet)  
+ - 🔭 I'm currently working on: [Arctic Designs - An EComm 3D Printing Site] (https://github.com/DevArtech/arcticdesigns)  
  - 💼 I'm currently working as: Data Scientist @ [Direct Supply](https://www.directsupply.com/)   
  - 🧐 I'm looking for: Help with developing Large Language Models   
  - 🌐 I can be found at [DevArtech.net](https://devartech.net)
