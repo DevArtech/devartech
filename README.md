@@ -55,7 +55,10 @@ Bash                     0 secs              ░░░░░░░░░░░�
 ![Static Badge](https://img.shields.io/badge/CSS-%231572B6?logo=css3&logoColor=%23FFFFFF)
 ![Static Badge](https://img.shields.io/badge/Microsoft%20Excel-%23217346?logo=microsoftexcel&logoColor=%23FFFFFF)
 ![Static Badge](https://img.shields.io/badge/Unreal%20Engine-%230E1128?logo=unrealengine&logoColor=%23FFFFFF)
+![Static Badge](https://img.shields.io/badge/Visual%20Studio%20Code-%23007ACC?logo=visualstudiocode&logoColor=%23FFFFFF)
 ![Static Badge](https://img.shields.io/badge/Unity-%23000000?logo=unity&logoColor=%23FFFFFF)
+![Static Badge](https://img.shields.io/badge/Git-%23F05032?logo=git&logoColor=%23FFFFFF)
+
 
 
 
