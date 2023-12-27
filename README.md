@@ -10,21 +10,21 @@
 
 ### Stats
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-12%20hrs%2033%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-16%20hrs%2044%20mins-blue)
 
-![Profile Views](http://img.shields.io/badge/Profile%20Views-143-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-176-blue)
 
 **🐱 My GitHub Data** 
 
-> 📦 65.4 kB Used in GitHub's Storage 
+> 📦 73.6 kB Used in GitHub's Storage 
  > 
-> 🏆 111 Contributions in the Year 2023
+> 🏆 132 Contributions in the Year 2023
  > 
 > 🚫 Not Opted to Hire
  > 
-> 📜 34 Public Repositories 
+> 📜 35 Public Repositories 
  > 
-> 🔑 7 Private Repositories 
+> 🔑 6 Private Repositories 
  > 
 📊 **This Week I Spent My Time On** 
 
