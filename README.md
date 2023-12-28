@@ -10,19 +10,19 @@
 
 ### Stats
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-12%20hrs%2033%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-16%20hrs%2044%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-180-blue)
 
 **🐱 My GitHub Data** 
 
-> 📦 74.4 kB Used in GitHub's Storage 
+> 📦 74.5 kB Used in GitHub's Storage 
  > 
-> 🏆 138 Contributions in the Year 2023
+> 🏆 164 Contributions in the Year 2023
  > 
 > 🚫 Not Opted to Hire
  > 
-> 📜 35 Public Repositories 
+> 📜 36 Public Repositories 
  > 
 > 🔑 6 Private Repositories 
  > 
@@ -30,11 +30,11 @@
 
 ```text
 💬 Programming Languages: 
-Python                   8 hrs 27 mins       █████████████████░░░░░░░░   68.22 % 
-TypeScript               2 hrs 52 mins       ██████░░░░░░░░░░░░░░░░░░░   23.14 % 
-YAML                     20 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.82 % 
-SQL                      8 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.21 % 
-Bash                     8 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.13 % 
+Python                   6 hrs 16 mins       ███████████████░░░░░░░░░░   60.79 % 
+TypeScript               2 hrs 1 min         █████░░░░░░░░░░░░░░░░░░░░   19.63 % 
+JSON                     29 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   04.77 % 
+YAML                     27 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   04.43 % 
+Git Config               13 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.19 % 
 ```
 
 
