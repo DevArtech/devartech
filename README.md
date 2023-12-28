@@ -58,6 +58,7 @@ Bash                     8 mins              ░░░░░░░░░░░�
 ![Static Badge](https://img.shields.io/badge/Visual%20Studio%20Code-%23007ACC?logo=visualstudiocode&logoColor=%23FFFFFF)
 ![Static Badge](https://img.shields.io/badge/Unity-%23000000?logo=unity&logoColor=%23FFFFFF)
 ![Static Badge](https://img.shields.io/badge/Git-%23F05032?logo=git&logoColor=%23FFFFFF)
+![Static Badge](https://img.shields.io/badge/Docker-%232496ED?style=flat-square&logo=docker&logoColor=%23ffffff)
 
 
 
