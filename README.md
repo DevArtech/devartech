@@ -10,15 +10,15 @@
 
 ### Stats
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-21%20hrs%2059%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-22%20hrs%2046%20mins-blue)
 
-![Profile Views](http://img.shields.io/badge/Profile%20Views-180-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-58-blue)
 
 **🐱 My GitHub Data** 
 
-> 📦 76.7 kB Used in GitHub's Storage 
+> 📦 76.0 kB Used in GitHub's Storage 
  > 
-> 🏆 172 Contributions in the Year 2023
+> 🏆 6 Contributions in the Year 2024
  > 
 > 🚫 Not Opted to Hire
  > 
@@ -30,11 +30,11 @@
 
 ```text
 💬 Programming Languages: 
-Python                   3 hrs 56 mins       ██████████░░░░░░░░░░░░░░░   38.60 % 
-TypeScript               2 hrs 39 mins       ███████░░░░░░░░░░░░░░░░░░   26.02 % 
-YAML                     1 hr 20 mins        ███░░░░░░░░░░░░░░░░░░░░░░   13.13 % 
-JSON                     40 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   06.59 % 
-Bash                     17 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.77 % 
+Python                   3 hrs 56 mins       ████████░░░░░░░░░░░░░░░░░   33.34 % 
+TypeScript               3 hrs 19 mins       ███████░░░░░░░░░░░░░░░░░░   28.06 % 
+YAML                     1 hr 20 mins        ███░░░░░░░░░░░░░░░░░░░░░░   11.34 % 
+CSS                      43 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   06.12 % 
+JSON                     40 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   05.73 % 
 ```
 
 
