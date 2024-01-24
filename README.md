@@ -10,15 +10,15 @@
 
 ### Stats
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-73%20hrs%2020%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-78%20hrs%2044%20mins-blue)
 
-![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-19-blue)
 
 **🐱 My GitHub Data** 
 
-> 📦 80.0 kB Used in GitHub's Storage 
+> 📦 80.1 kB Used in GitHub's Storage 
  > 
-> 🏆 73 Contributions in the Year 2024
+> 🏆 82 Contributions in the Year 2024
  > 
 > 🚫 Not Opted to Hire
  > 
@@ -30,11 +30,11 @@
 
 ```text
 💬 Programming Languages: 
-Python                   10 hrs 57 mins      █████████████░░░░░░░░░░░░   50.04 % 
-TypeScript               6 hrs 9 mins        ███████░░░░░░░░░░░░░░░░░░   28.07 % 
-CSS                      3 hrs 40 mins       ████░░░░░░░░░░░░░░░░░░░░░   16.76 % 
-Markdown                 41 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.15 % 
-Text                     11 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   00.88 % 
+Python                   11 hrs 56 mins      ██████████░░░░░░░░░░░░░░░   40.65 % 
+TypeScript               10 hrs 42 mins      █████████░░░░░░░░░░░░░░░░   36.42 % 
+CSS                      5 hrs 34 mins       █████░░░░░░░░░░░░░░░░░░░░   18.98 % 
+Markdown                 41 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.35 % 
+Text                     11 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   00.66 % 
 ```
 
 
