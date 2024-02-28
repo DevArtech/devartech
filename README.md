@@ -10,7 +10,7 @@
 
 ### Stats
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-118%20hrs%2035%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-119%20hrs%201%20min-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
@@ -30,7 +30,7 @@
 
 ```text
 💬 Programming Languages: 
-Python                   2 hrs 38 mins       ████████████████████████░   94.61 % 
+Python                   2 hrs 39 mins       ████████████████████████░   94.63 % 
 JSON                     2 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.77 % 
 TypeScript               2 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.61 % 
 CSV                      2 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.31 % 
