@@ -18,7 +18,7 @@
 
 ###
 
-<h1 align="center">Data Science and Deep Learning at your service! 🤖</h1>
+<h1 align="center">Making neat things</h1>
 
 ###
 
