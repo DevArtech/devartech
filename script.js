@@ -1080,6 +1080,7 @@ Available Commands (Pages):
  - <a href="javascript:void(0)" onclick="runMode('rock-paper-scissors')">rock-paper-scissors, rps</a>: Play Rock, Paper, Scissors.
  - <a href="javascript:void(0)" onclick="runMode('blackjack')">blackjack, b</a>: Play Blackjack. (Note: Aces play 11 unless they exceed 21, then they are 1.)
  - <a href="javascript:void(0)" onclick="runMode('hangman')">hangman, hm</a>: Play Hangman.
+ - <a href="javascript:void(0)" onclick="runMode('tic-tac-toe')">tic-tac-toe, ttt</a>: Play Tic-Tac-Toe against an AI.
  - <a href="javascript:void(0)" onclick="invertPage()">invert, i</a>: Invert the page's color.
  - <a href="javascript:void(0)" onclick="clearPage()">clear, c</a>: Clear the terminal.
  - <a href="javascript:void(0)" onclick="switchMobileFriendly()">mobile-friendly, mf</a>: Switch effects to mobile-friendly.
