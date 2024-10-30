@@ -1,3 +1,12 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+// Aware that this is horrible practice, but this is a personal project
+// this key is not connected to any pricing plan, so there is no major risk.
+const API_KEY = "AIzaSyAcmNnq0rdXpWtzNbuh6rmeVoKYUWuWCoI"
+
+const genAI = new GoogleGenerativeAI(API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+
 let colorMode = "dark";
 let mobileFriendly = false;
 let mode = "";
@@ -110,6 +119,10 @@ function checkInput(input) {
       runMode("hangman");
     } else if (i === "tic-tac-toe" || i === "ttt") {
       runMode("tic-tac-toe");
+    } else if (i.contains("generate")) {
+      genAI.generateContent(model, i.replace("generate ", "").trim()).then((response) => {
+        appendNewlines(response.data.text);
+      });
     } else if (i === "invert" || i === "i") {
       invertPage();
     } else if (i === "mobile-friendly" || i === "mf") {
