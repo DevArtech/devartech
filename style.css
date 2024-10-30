@@ -176,6 +176,8 @@ div {
 .terminal-input {
   font-size: 1rem;
   white-space: pre;
+  width: 90vw;
+  text-wrap: wrap;
 }
 
 @keyframes scanline {

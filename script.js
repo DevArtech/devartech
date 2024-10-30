@@ -1,11 +1,6 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
 // Aware that this is horrible practice, but this is a personal project
 // this key is not connected to any pricing plan, so there is no major risk.
 const API_KEY = "AIzaSyAcmNnq0rdXpWtzNbuh6rmeVoKYUWuWCoI"
-
-const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
 
 let colorMode = "dark";
 let mobileFriendly = false;
@@ -119,9 +114,13 @@ function checkInput(input) {
       runMode("hangman");
     } else if (i === "tic-tac-toe" || i === "ttt") {
       runMode("tic-tac-toe");
-    } else if (i.contains("generate")) {
-      genAI.generateContent(model, i.replace("generate ", "").trim()).then((response) => {
-        appendNewlines(response.data.text);
+    } else if (i.includes("generate")) {
+      fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts: [{ text: i.replace("generate ", "").trim() }] }] })
+      }).then(response => response.json()).then(data => {
+        appendNewlines(data.candidates[0].content.parts[0].text, "lightblue");
       });
     } else if (i === "invert" || i === "i") {
       invertPage();
@@ -986,7 +985,7 @@ function getContacts() {
 }
 
 // Append a string to the terminal line-by-line
-function appendNewlines(text) {
+function appendNewlines(text, color = undefined) {
   document.querySelector(".input-field").disabled = true;
   let resultString = "";
 
@@ -1003,8 +1002,19 @@ function appendNewlines(text) {
       element.classList.add(colorMode);
     });
 
+    if (color !== undefined) {
+      elements.forEach((element) => {
+        element.style.color = color;
+      });
+    }
+
     outputElement.innerHTML = doc.documentElement.outerHTML;
     outputElement.classList.add("terminal-input");
+
+    if (color !== undefined) {
+      outputElement.style.color = color;
+    }
+
     document.querySelector(".body").appendChild(outputElement);
   } else {
     for (let i = 0; i < text.length; i++) {
@@ -1022,6 +1032,10 @@ function appendNewlines(text) {
 
         outputElement.innerHTML = doc.documentElement.outerHTML;
         outputElement.classList.add("terminal-input");
+
+        if (color !== undefined) {
+          outputElement.style.color = color;
+        }
 
         setTimeout(() => {
           document.querySelector(".body").appendChild(outputElement);
@@ -1049,8 +1063,18 @@ function appendNewlines(text) {
         element.classList.add(colorMode);
       });
 
+      if (color !== undefined) {
+        elements.forEach((element) => {
+          element.style.color = color;
+        });
+      }
+
       outputElement.innerHTML = doc.documentElement.outerHTML;
       outputElement.classList.add("terminal-input");
+
+      if (color !== undefined) {
+        outputElement.style.color = color;
+      }
 
       setTimeout(() => {
         document.querySelector(".body").appendChild(outputElement);
