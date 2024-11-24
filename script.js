@@ -1132,7 +1132,7 @@ I am most well known for my game development and MC Map creation but am also an 
 and 3D Printing developer and 3D designer. I'm currently working on studying the world of AI/ML so if you 
 would like to contact me with more information on this science, please do so! 
 ​
-<a href='https://drive.google.com/file/d/1cogawcy3mon54x3XdpdEpYGirClaB2x1/view?usp=sharing' target="_blank">Resume</a>
+<a href='https://drive.google.com/file/d/13kSXvfPS-7pxTHnRRINXsULXkoxVzD0g/view?usp=sharing' target="_blank">Resume</a>
 Github: <a href='https://github.com/DevArtech' target="_blank">github.com/DevArtech</a>
 Twitter/X: <a href='https://x.com/DevArtech' target="_blank">x.com/DevArtech</a>
 Instagram: <a href='https://www.instagram.com/devartech/' target="_blank">instagram.com/devartech</a>
