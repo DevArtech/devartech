@@ -1,6 +1,4 @@
-// Aware that this is horrible practice, but this is a personal project
-// this key is not connected to any pricing plan, so there is no major risk.
-const API_KEY = "AIzaSyAcmNnq0rdXpWtzNbuh6rmeVoKYUWuWCoI"
+const API_KEY = ""
 
 let colorMode = "dark";
 let mobileFriendly = false;
@@ -115,12 +113,19 @@ function checkInput(input) {
     } else if (i === "tic-tac-toe" || i === "ttt") {
       runMode("tic-tac-toe");
     } else if (i.includes("generate")) {
+      document.querySelector(".input-field").disabled = true;
       fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: [{ text: i.replace("generate ", "").trim() }] }] })
       }).then(response => response.json()).then(data => {
         appendNewlines(data.candidates[0].content.parts[0].text, "lightblue");
+        document.querySelector(".input-field").disabled = false;
+        document.querySelector(".input-field").focus();
+      }).catch(error => {
+        appendNewlines("Error generating response: " + error, "red");
+        document.querySelector(".input-field").disabled = false;
+        document.querySelector(".input-field").focus();
       });
     } else if (i === "invert" || i === "i") {
       invertPage();
