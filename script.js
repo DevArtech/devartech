@@ -1,4 +1,4 @@
-const API_KEY = ""
+const API_KEY = "";
 
 let colorMode = "dark";
 let mobileFriendly = false;
