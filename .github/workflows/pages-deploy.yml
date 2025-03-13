@@ -1,0 +1,43 @@
+name: GitHub Pages Deployment with API Key
+
+on:
+  push:
+    branches:
+      - main  # Set this to your default branch
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Inject API Key
+        run: |
+          # Replace the API_KEY placeholder with the actual secret
+          sed -i 's/const API_KEY = ""/const API_KEY = "${{ secrets.GEMINI_API_KEY }}"/g' script.js
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: '.'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2 
