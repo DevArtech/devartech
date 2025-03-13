@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Inject GEMINI_API_KEY into JS file
-        run: sed -i 's|const API_KEY="";|const API_KEY="${{ secrets.GEMINI_API_KEY }}";|' src/config.js
+        run: sed -i 's|const API_KEY="";|const API_KEY="${{ secrets.GEMINI_API_KEY }}";|' script.js
 
       - name: Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
