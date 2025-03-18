@@ -4,14 +4,19 @@ on:
   push:
     branches:
       - main  # Change if needed
+  workflow_dispatch:  # Allow manual triggering from the Actions tab
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Single job to build and deploy
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,7 +26,7 @@ jobs:
         run: |
           echo "Injecting API key into script.js"
           sed -i "s|const API_KEY = \"\";|const API_KEY = \"${{ secrets.GEMINI_API_KEY }}\";|g" script.js
-          grep -q "const API_KEY = \"${{ secrets.GEMINI_API_KEY }}\"" script.js && echo "API key injection successful" || echo "API key injection failed"
+          grep -q "const API_KEY = \"${{ secrets.GEMINI_API_KEY }}\"" script.js && echo "API key injection successful" || { echo "API key injection failed"; exit 1; }
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -30,35 +35,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .  # Deploy the root directory
-
-  deploy:
-    needs: build-and-deploy
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: ./artifact
-
-      - name: Extract artifact
-        run: |
-          mkdir -p ./deploy
-          tar -xf ./artifact/artifact.tar -C ./deploy
-
-      - name: Verify API key in script.js
-        run: |
-          echo "Verifying API key in script.js"
-          if grep -q "const API_KEY = \"${{ secrets.GEMINI_API_KEY }}\"" ./deploy/script.js; then
-            echo "API key verification successful"
-          else
-            echo "API key verification failed"
-            exit 1
-          fi
 
       - name: Deploy to GitHub Pages
         id: deployment
