@@ -1133,9 +1133,10 @@ const help = `
 Welcome to the portfolio page of DevArtech!
  ​
 I am Artech, also known as DevArtech or Adam Haile, and I am a current computer science student at MSOE. 
-I am a current Data Science Intern at <a href='https://directsupply.com/' target="_blank">Direct Supply</a> and
-about to start my senior year, along with my Masters of Machine Learning and AI. I love working on projects with
-big data, machine learning, LLMs, and more! Find out more about my work below!
+I am a current Data Science Intern at <a href='https://directsupply.com/' target="_blank">Direct Supply</a> and about to start my senior year, 
+along with my Masters of Machine Learning and AI. I love working on projects with big data, machine learning, 
+LLMs, and more! I have also done work in game development, additive manufacturing, and more! 
+Find out more about my work below!
 ​
 <a href='https://drive.google.com/file/d/1mwnEEsgWM7klMTYQ4IlM21YeiIwUHYMd/view?usp=sharing' target="_blank">Resume</a>
 Github: <a href='https://github.com/DevArtech' target="_blank">github.com/DevArtech</a>
