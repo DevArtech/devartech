@@ -36,6 +36,27 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: github-pages
+          path: ./artifact
+
+      - name: Extract artifact
+        run: |
+          mkdir -p ./deploy
+          tar -xf ./artifact/artifact.tar -C ./deploy
+
+      - name: Verify API key in script.js
+        run: |
+          echo "Verifying API key in script.js"
+          if grep -q "const API_KEY = \"${{ secrets.GEMINI_API_KEY }}\"" ./deploy/script.js; then
+            echo "API key verification successful"
+          else
+            echo "API key verification failed"
+            exit 1
+          fi
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
