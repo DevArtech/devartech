@@ -21,7 +21,10 @@ jobs:
         run: |
           echo "Injecting API key into script.js"
           sed -i "s|const API_KEY = \"\";|const API_KEY = \"${{ secrets.GEMINI_API_KEY }}\";|g" script.js
-          grep -q "${{ secrets.GEMINI_API_KEY }}" script.js || echo "API key injection failed"
+          grep -q "const API_KEY = \"${{ secrets.GEMINI_API_KEY }}\"" script.js && echo "API key injection successful" || echo "API key injection failed"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
