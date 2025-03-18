@@ -149,7 +149,6 @@ let savedSentence = "";
 let lettersUsed = [];
 let deck = createDeck();
 let hands = []
-let loadedModel;
 let ticTacToeState = [];
 
 function runMode(input) {
@@ -455,106 +454,53 @@ function runMode(input) {
             storeScore("ttt", 0);
           }
           ticTacToeState = Array(9).fill('-');
-          loadTicTacToe().then(() => {
-            console.log("Model loaded", loadedModel);
-            appendNewlines("Playing Tic-Tac-Toe.\n | | \n-----\n | | \n-----\n | | \nYou are X.\nChoose the index to play (1-9).");
-            number = 0;
-          }).catch((error) => {
-            console.log("Failed to load model: " + error);
-            appendNewlines("There was an error loading the Tic-Tac-Toe AI.\nExiting.");
-            mode = "";
-          })
+          appendNewlines("Playing Tic-Tac-Toe.\n  | | \n-----\n  | | \n-----\n  | | \nYou are X.\nChoose the index to play (1-9).");
+          number = 0;
         } else if(number === 0) {
           const index = parseInt(input) - 1;
-          if(ticTacToeState[index] === "-") {
-            if(index >= 1 || index <= 9) {
-              ticTacToeState[index] = "X";
-            }
-            let modelState = [];
-            let rowState = [];
-            let iter = 0;
-            for(let i = 0; i < ticTacToeState.length; i++) {
-              if(i % 3 === 0) {
-                if(i !== 0) {
-                  modelState.push(rowState);
-                }
-                rowState = [];
-              }
-              if(ticTacToeState[i] === "X" || ticTacToeState[i] === "O") {
-                rowState.push(ticTacToeState[i]);
-              } else {
-                rowState.push("-");
-              }
-              iter++;
-            }
-            modelState.push(rowState);
+          if(!isNaN(index) && index >= 0 && index < 9 && ticTacToeState[index] === "-") {
+            ticTacToeState[index] = "X";
+            
             let winner = checkWinner(ticTacToeState);
-            if(isNaN(winner)) {
-              const numericBoard = modelState.map(row => row.map(cell => (cell === 'X' ? 1 : (cell === 'O' ? -1 : 0))));
-              const inputTensor = tf.tensor2d([numericBoard.flat()]);
-              const predictions = loadedModel.predict(inputTensor);
-              const predictionsArray = Array.from(predictions.dataSync());
-              const nextActionIndex = predictionsArray.indexOf(Math.max(...predictionsArray));
+            let isBoardFull = !ticTacToeState.includes('-');
+            
+            if(isNaN(winner) && !isBoardFull) {
+              // AI makes a move using minimax
+              const nextActionIndex = findBestMove(ticTacToeState);
               ticTacToeState[nextActionIndex] = "O";
-              let ticTacToeBoard = "";
-              for (let i = 0; i < ticTacToeState.length; i++) {
-                if(i % 3 === 0) {
-                  ticTacToeBoard = ticTacToeBoard.slice(0, -1);
-                  if(i !== 0) {
-                    ticTacToeBoard += "\n-----\n";
-                  }
-                }
-                if(ticTacToeState[i] !== "-") {
-                  ticTacToeBoard += ticTacToeState[i] + "|";
-                } else {
-                  ticTacToeBoard += " |";
-                }
-              }
-              ticTacToeBoard = ticTacToeBoard.slice(0, -1);
+              
+              let ticTacToeBoard = formatTicTacToeBoard(ticTacToeState);
+              
               winner = checkWinner(ticTacToeState);
-              if(isNaN(winner)) {
+              if(isNaN(winner) && ticTacToeState.includes('-')) {
                 appendNewlines("You chose index " + (index + 1) + ".\nThe AI chose index " + (nextActionIndex + 1) + "\n" + ticTacToeBoard + "\nChoose the index to play (1-9).");
               } else {
-                let icon = ""
-                if(winner === 0) {
-                  icon = "X";
-                  storeScore("ttt", getStoredScore("ttt") + 1);
+                let resultMessage = "";
+                if(!isNaN(winner)) {
+                  let icon = winner === 0 ? "X" : "O";
+                  storeScore("ttt", getStoredScore("ttt") + (winner === 0 ? 1 : -1));
+                  resultMessage = icon + " wins!\nScore: " + getStoredScore("ttt");
                 } else {
-                  icon = "O";
-                  storeScore("ttt", getStoredScore("ttt") - 1);
+                  resultMessage = "It's a draw!\nScore: " + getStoredScore("ttt");
                 }
-                appendNewlines("You chose index " + (index + 1) + ".\nThe AI chose index " + (nextActionIndex + 1) + "\n" + ticTacToeBoard + "\n" + icon + " wins!\nScore: " + getStoredScore("ttt") + "\nPlay again? (Y/N)");
+                appendNewlines("You chose index " + (index + 1) + ".\nThe AI chose index " + (nextActionIndex + 1) + "\n" + ticTacToeBoard + "\n" + resultMessage + "\nPlay again? (Y/N)");
                 number = 1;
               }
             } else {
-              let ticTacToeBoard = "";
-              for (let i = 0; i < ticTacToeState.length; i++) {
-                if(i % 3 === 0) {
-                  ticTacToeBoard = ticTacToeBoard.slice(0, -1);
-                  if(i !== 0) {
-                    ticTacToeBoard += "\n-----\n";
-                  }
-                }
-                if(ticTacToeState[i] !== "-") {
-                  ticTacToeBoard += ticTacToeState[i] + "|";
-                } else {
-                  ticTacToeBoard += " |";
-                }
-              }
-              ticTacToeBoard = ticTacToeBoard.slice(0, -1);
-              let icon = ""
-              if(winner === 0) {
-                icon = "X";
-                storeScore("ttt", getStoredScore("ttt") + 1);
+              let ticTacToeBoard = formatTicTacToeBoard(ticTacToeState);
+              let resultMessage = "";
+              if(!isNaN(winner)) {
+                let icon = winner === 0 ? "X" : "O";
+                storeScore("ttt", getStoredScore("ttt") + (winner === 0 ? 1 : -1));
+                resultMessage = icon + " wins!\nScore: " + getStoredScore("ttt");
               } else {
-                icon = "O";
-                storeScore("ttt", getStoredScore("ttt") - 1);
+                resultMessage = "It's a draw!\nScore: " + getStoredScore("ttt");
               }
-              appendNewlines("You chose index " + (index + 1) + ".\n" +ticTacToeBoard + "\n" + icon + " wins!\nScore: " + getStoredScore("ttt") + "\nPlay again? (Y/N)");
+              appendNewlines("You chose index " + (index + 1) + ".\n" + ticTacToeBoard + "\n" + resultMessage + "\nPlay again? (Y/N)");
               number = 1;
             }
           } else {
-            appendNewlines("That index is already taken.\nChoose the index to play (1-9).");
+            appendNewlines("Invalid move. Please choose an empty position (1-9).");
           }
         } else if(number === 1) {
           if(input.toLowerCase() === "y") {
@@ -572,6 +518,25 @@ function runMode(input) {
         break;
     }
   }
+}
+
+// Format the Tic-Tac-Toe board for display
+function formatTicTacToeBoard(board) {
+  let formattedBoard = "";
+  for (let i = 0; i < board.length; i++) {
+    if(i % 3 === 0) {
+      if(i !== 0) {
+        formattedBoard = formattedBoard.slice(0, -1); // Only remove the trailing pipe at end of row
+        formattedBoard += "\n-----\n";
+      }
+    }
+    if(board[i] !== "-") {
+      formattedBoard += board[i] + "|";
+    } else {
+      formattedBoard += " |";
+    }
+  }
+  return formattedBoard.slice(0, -1); // Remove the final trailing pipe
 }
 
 function checkWinner(board) {
@@ -603,46 +568,73 @@ function checkWinner(board) {
   return NaN; // No winner yet
 }
 
-async function loadTicTacToe() {
-  try {
-    const model = await tf.loadLayersModel('./ttt_model.json');
-
-    const expectedShapesAndSizes = {
-      'dense_Dense31/kernel': [9, 64],
-      'dense_Dense31/bias': [64],
-      'dense_Dense32/kernel': [64, 64],
-      'dense_Dense32/bias': [64],
-      'dense_Dense33/kernel': [64, 9],
-      'dense_Dense33/bias': [9],
-    };
-
-
-    const weightsResponse = await fetch('./ttt_model.weights.bin');
-    const weightsBuffer = await weightsResponse.arrayBuffer();
-    const weightsArray = new Float32Array(weightsBuffer);
-
-    let offset = 0;
-    model.weights.forEach((weight) => {
-      const layerName = weight.originalLayerName || weight.name; // Use originalLayerName if available
-      const expectedShape = expectedShapesAndSizes[layerName];
-      if (!expectedShape) {
-        console.warn(`Expected shape not defined for weight "${layerName}"`);
-        return;
+// Minimax algorithm for Tic-Tac-Toe
+function minimax(board, depth, isMaximizing) {
+  // Check for terminal states
+  const winner = checkWinner(board);
+  
+  // If X wins (player)
+  if (winner === 0) return -10 + depth;
+  
+  // If O wins (AI)
+  if (winner === 1) return 10 - depth;
+  
+  // If draw
+  if (!board.includes('-')) return 0;
+  
+  if (isMaximizing) {
+    let bestScore = -Infinity;
+    for (let i = 0; i < board.length; i++) {
+      if (board[i] === '-') {
+        board[i] = 'O';
+        let score = minimax(board, depth + 1, false);
+        board[i] = '-';
+        bestScore = Math.max(score, bestScore);
       }
-
-      const size = expectedShape.reduce((acc, dim) => acc * dim, 1);
-
-      const weightsForLayer = weightsArray.slice(offset, offset + size);
-      const newWeights = tf.tensor(weightsForLayer, expectedShape, 'float32');
-      weight.val.assign(newWeights);
-      offset += size;
-    });
-
-    loadedModel = model;
-  } catch (error) {
-    console.error('Error loading model:', error);
-    throw error;
+    }
+    return bestScore;
+  } else {
+    let bestScore = Infinity;
+    for (let i = 0; i < board.length; i++) {
+      if (board[i] === '-') {
+        board[i] = 'X';
+        let score = minimax(board, depth + 1, true);
+        board[i] = '-';
+        bestScore = Math.min(score, bestScore);
+      }
+    }
+    return bestScore;
   }
+}
+
+// Find the best move for the AI
+function findBestMove(board) {
+  let bestScore = -Infinity;
+  let bestMove = -1;
+  
+  // Add some randomness for first move to make game more interesting
+  const emptySpaces = board.reduce((acc, cell, index) => {
+    if (cell === '-') acc.push(index);
+    return acc;
+  }, []);
+  
+  // If it's the first move (8 or 9 empty spaces), choose randomly with 80% chance
+  if (emptySpaces.length >= 8 && Math.random() < 0.8) {
+    return emptySpaces[Math.floor(Math.random() * emptySpaces.length)];
+  }
+  
+  for (let i = 0; i < board.length; i++) {
+    if (board[i] === '-') {
+      board[i] = 'O';
+      let score = minimax(board, 0, false);
+      board[i] = '-';
+      if (score > bestScore) {
+        bestScore = score;
+        bestMove = i;
+      }
+    }
+  }
+  return bestMove;
 }
 
 function generateHangmanSentence() {
