@@ -1133,11 +1133,11 @@ const help = `
 Welcome to the portfolio page of DevArtech!
  ​
 I am Artech, also known as DevArtech or Adam Haile, and I am a current computer science student at MSOE. 
-I am most well known for my game development and MC Map creation but am also an avid Additive Manufacturer 
-and 3D Printing developer and 3D designer. I'm currently working on studying the world of AI/ML so if you 
-would like to contact me with more information on this science, please do so! 
+I am a current Data Science Intern at <a href='https://directsupply.com/' target="_blank">Direct Supply</a> and
+about to start my senior year, along with my Masters of Machine Learning and AI. I love working on projects with
+big data, machine learning, LLMs, and more! Find out more about my work below!
 ​
-<a href='https://drive.google.com/file/d/13kSXvfPS-7pxTHnRRINXsULXkoxVzD0g/view?usp=sharing' target="_blank">Resume</a>
+<a href='https://drive.google.com/file/d/1mwnEEsgWM7klMTYQ4IlM21YeiIwUHYMd/view?usp=sharing' target="_blank">Resume</a>
 Github: <a href='https://github.com/DevArtech' target="_blank">github.com/DevArtech</a>
 Twitter/X: <a href='https://x.com/DevArtech' target="_blank">x.com/DevArtech</a>
 Instagram: <a href='https://www.instagram.com/devartech/' target="_blank">instagram.com/devartech</a>
@@ -1146,6 +1146,13 @@ LinkedIn: <a href='https://www.linkedin.com/in/devartech/' target="_blank">linke
 
 const projects = `
 Current Projects:
+ - AI/ML/LLMs: <a href='https://github.com/DevArtech/llmflow-backend' target="_blank">LLMFlow</a>
+    - LLMFlow is a service that utilizes the Osire microsystem platform at MSOE to provide a web interface for
+      users to build their own LLM applications. The system uses a drag-and-drop node editor interface to allow
+      non-technical users to learn the basics and build their own applications quickly and iteratively.
+      This application is being developed as apart of my senior design project at MSOE along with 4 other students.
+      This prototype version is an open-source tech feasibility study to test the viability of the system.
+      The prototype is built with Python, React, NodeJS, LangChain, and more.
  - Game Development: <a href='https://store.steampowered.com/app/1631930/The_Insignia_Project/' target="_blank">The Insignia Project</a>
     - The Insignia Project is a horror game that delves into an alternate universe within our multiverse where it has been 
       corrupted and broken beyond repair. UO#-405 is now an ever-consuming universe where all of your nightmares come together 
@@ -1156,10 +1163,6 @@ Current Projects:
    needed and wanted, in terms of strength, efficiency, and speed of production. I've obtained mamy different Solidworks 
    Certifcations with this as well.
    ​
- - Artificial Intelligence: Artifical Intelligence is a science I am still learning and working with to be my end goal. 
-   I've always enjoyed puzzles and critical thinking scenarios so AI/ML sciences has very much caught my attention in that regard. 
-   On my <a href='https://github.com/Adam-Haile' target="_blank">school GitHub</a> are a variety of projects which I have created for extra curriculars 
-   and for classes. Amongst them are a project of deepfake detection and a video to audio model!
 `;
 
 const contacts = `
