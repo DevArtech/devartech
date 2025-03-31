@@ -85,11 +85,80 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Determine input and subsequent logic
+// Add encoding/decoding functionality
+const cols = ['D', 'E', 'V'];
+const rows = ['A', 'R', 'T'];
+const coordList = [];
+for (const row of rows) {
+  for (const col of cols) {
+    coordList.push(col + row);
+  }
+}
+const mapping = {};
+coordList.forEach((coord, i) => mapping[i] = coord);
+
+function letterToNum(letter) {
+  return letter.toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0) + 1;
+}
+
+function numToLetter(num) {
+  return String.fromCharCode(num + 'A'.charCodeAt(0) - 1);
+}
+
+function toBase9(n) {
+  if (n === 0) return "0";
+  let digits = [];
+  while (n) {
+    digits.push(String(n % 9));
+    n = Math.floor(n / 9);
+  }
+  return digits.reverse().join("");
+}
+
+function decodeMessage(encodedMessage) {
+  // Create reverse mapping dictionary
+  const reverseMapping = {};
+  Object.entries(mapping).forEach(([k, v]) => reverseMapping[v] = k);
+  
+  // Convert coordinate values back to base 9 numbers
+  const base9Nums = [];
+  for (const coord of encodedMessage) {
+    // Split into pairs of coordinates
+    const first = coord.substring(0, 2);
+    const second = coord.substring(2, 4);
+    // Convert each coordinate to its digit
+    base9Nums.push(reverseMapping[first] + reverseMapping[second]);
+  }
+  
+  // Convert base 9 numbers back to decimal
+  const decimalNums = base9Nums.map(num => parseInt(num, 9));
+  
+  // Convert numbers back to letters
+  const decoded = decimalNums.map(num => numToLetter(num));
+  
+  // Join letters into final message
+  return decoded.join('');
+}
+
+function isEncodedPattern(text) {
+  // Clean the input by removing any extra whitespace
+  const cleanedText = text.trim().replace(/\s+/g, ' ');
+  const pattern = /^([DEV][ART]){2}( ([DEV][ART]){2})*$/;
+  return pattern.test(cleanedText);
+}
+
+// Modify the checkInput function to include automatic decoding
 function checkInput(input) {
   const i = input.toLowerCase();
 
   if (mode == "") {
+    // Check for encoded pattern before other commands
+    if (isEncodedPattern(input)) {
+      const decoded = decodeMessage(input.split(' '));
+      appendNewlines(`${decoded}`);
+      return;
+    }
+
     if (isMathematicalOperator(i)) {
       performMath(i);
     } else if (i === "h") {
@@ -114,7 +183,7 @@ function checkInput(input) {
       runMode("tic-tac-toe");
     } else if (i.includes("generate")) {
       document.querySelector(".input-field").disabled = true;
-      fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+      fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: [{ text: i.replace("generate ", "").trim() }] }] })
