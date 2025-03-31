@@ -196,8 +196,6 @@ function checkInput(input) {
       
       // Add the current user query
       contents.push({ role: "user", parts: [{ text: userQuery }] });
-
-      console.log(contents);
       
       fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
           method: 'POST',
