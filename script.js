@@ -5,6 +5,7 @@ let mobileFriendly = false;
 let mode = "";
 let previousInputs = [];
 let currentIndex = 0;
+let generationHistory = []; // Store generate command history
 
 // On page load initializers and event listeners.
 document.addEventListener("DOMContentLoaded", function () {
@@ -183,12 +184,36 @@ function checkInput(input) {
       runMode("tic-tac-toe");
     } else if (i.includes("generate")) {
       document.querySelector(".input-field").disabled = true;
+      const userQuery = i.replace("generate ", "").trim();
+      
+      // Prepare the conversation history for context
+      let contents = [];
+      
+      // Add previous conversation history if it exists
+      if (generationHistory.length > 0) {
+        contents = generationHistory.slice();
+      }
+      
+      // Add the current user query
+      contents.push({ role: "user", parts: [{ text: userQuery }] });
+      
       fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ contents: [{ parts: [{ text: i.replace("generate ", "").trim() }] }] })
+          body: JSON.stringify({ contents: contents })
       }).then(response => response.json()).then(data => {
-        appendNewlines(data.candidates[0].content.parts[0].text, "lightblue");
+        const modelResponse = data.candidates[0].content.parts[0].text;
+        appendNewlines(modelResponse, "lightblue");
+        
+        // Store the conversation history
+        generationHistory.push({ role: "user", parts: [{ text: userQuery }] });
+        generationHistory.push({ role: "model", parts: [{ text: modelResponse }] });
+        
+        // Limit conversation history to last 10 exchanges (5 turns)
+        if (generationHistory.length > 10) {
+          generationHistory = generationHistory.slice(generationHistory.length - 10);
+        }
+        
         document.querySelector(".input-field").disabled = false;
         document.querySelector(".input-field").focus();
       }).catch(error => {
