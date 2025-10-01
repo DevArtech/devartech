@@ -1224,7 +1224,7 @@ along with my Masters of Machine Learning and AI. I love working on projects wit
 LLMs, and more! I have also done work in game development, additive manufacturing, and more! 
 Find out more about my work below!
 ​
-<a href='https://drive.google.com/file/d/1mwnEEsgWM7klMTYQ4IlM21YeiIwUHYMd/view?usp=sharing' target="_blank">Resume</a>
+<a href='https://drive.google.com/file/d/1-va8opTP_sXsv7206eJYcab1-IhsDFTj/view?usp=sharing' target="_blank">Resume</a>
 Github: <a href='https://github.com/DevArtech' target="_blank">github.com/DevArtech</a>
 Twitter/X: <a href='https://x.com/DevArtech' target="_blank">x.com/DevArtech</a>
 Instagram: <a href='https://www.instagram.com/devartech/' target="_blank">instagram.com/devartech</a>
