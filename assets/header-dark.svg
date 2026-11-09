@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="240" viewBox="0 0 900 240" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#76b900"/><stop offset="1" stop-color="#35e0ff"/></linearGradient>
+  <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#1d2633"/></pattern></defs>
+  <rect width="900" height="240" rx="12" fill="#0d1117"/><rect width="900" height="240" rx="12" fill="url(#dots)"/>
+  <rect x="0.5" y="0.5" width="899" height="239" rx="11.5" fill="none" stroke="#21262d"/>
+  <circle cx="28" cy="28" r="5.5" fill="#ff5f56"/><circle cx="46" cy="28" r="5.5" fill="#ffbd2e"/><circle cx="64" cy="28" r="5.5" fill="#27c93f"/>
+  <text x="40" y="86" font-size="15" fill="#7d8590">$ whoami</text>
+  <text x="40" y="130" font-size="38" font-weight="700" fill="#e6edf3">Adam Haile</text>
+  <rect x="40" y="145" width="236" height="3" rx="1.5" fill="url(#g)"/>
+  <text x="40" y="180" font-size="17" fill="#c9d1d9">AI Agent Engineer <tspan fill="#76b900">@ NVIDIA</tspan></text>
+  <text x="40" y="205" font-size="13" fill="#7d8590">agents · model routing · reinforcement learning</text>
+  <rect x="463" y="190" width="9" height="17" fill="#76b900"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>
+  <g transform="translate(742 120)" font-size="11">
+    <circle r="62" fill="none" stroke="#30363d" stroke-width="1.5" stroke-dasharray="2 5"/>
+    <path d="M0 -62 A62 62 0 0 1 62 0" fill="none" stroke="#76b900" stroke-width="2"/>
+    <path d="M62 0 A62 62 0 0 1 0 62" fill="none" stroke="#35e0ff" stroke-width="2"/>
+    <path d="M0 62 A62 62 0 0 1 -62 0" fill="none" stroke="#a78bfa" stroke-width="2"/>
+    <path d="M-62 0 A62 62 0 0 1 0 -62" fill="none" stroke="#ffb347" stroke-width="2"/>
+    <circle cx="0" cy="-62" r="5" fill="#76b900"/><circle cx="62" cy="0" r="5" fill="#35e0ff"/>
+    <circle cx="0" cy="62" r="5" fill="#a78bfa"/><circle cx="-62" cy="0" r="5" fill="#ffb347"/>
+    <text x="0" y="-74" text-anchor="middle" fill="#7d8590">observe</text>
+    <text x="72" y="4" fill="#7d8590">decide</text>
+    <text x="0" y="82" text-anchor="middle" fill="#7d8590">act</text>
+    <text x="-72" y="4" text-anchor="end" fill="#7d8590">learn</text>
+    <circle r="16" fill="#0d1117" stroke="#c9d1d9" stroke-width="1.5"/>
+    <circle r="5" fill="#e6edf3"><animate attributeName="r" values="4;6;4" dur="2.4s" repeatCount="indefinite"/></circle>
+    <circle r="3.5" fill="#e6edf3"><animateMotion dur="4.8s" repeatCount="indefinite" path="M0 -62 A62 62 0 1 1 0 62 A62 62 0 1 1 0 -62"/></circle>
+  </g>
+</svg>
