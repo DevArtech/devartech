@@ -27,10 +27,10 @@ I build agents and the systems around them: how they choose a model, how they ac
   </picture>
 </a>
 
-<a href="https://github.com/DevArtech/headquarters">
+<a href="https://github.com/Stratiform-Networking/cartographer">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/headquarters-dark.svg">
-    <img alt="Headquarters: a command center for agents, with the G.A.R.T.H. voice assistant" src="assets/headquarters-light.svg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/cartographer-dark.svg">
+    <img alt="Cartographer: self-hosted network mapping" src="assets/cartographer-light.svg" width="100%">
   </picture>
 </a>
 
